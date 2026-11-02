@@ -27,7 +27,7 @@ $version_consentimiento = "1.0";
 // y el formulario termina en "enviado=1". En el hosting real este modo nunca se activa
 // (solo funciona si la petición viene del mismo equipo). Para desactivarlo del todo
 // antes de publicar, cambia true por false.
-$modo_prueba_local = true;
+$modo_prueba_local = false;   // PRODUCCIÓN: desactivado
 
 // La IP también es un dato personal. Déjala en false salvo que tu abogado
 // recomiende guardarla como evidencia adicional.
@@ -143,7 +143,13 @@ if ($modo_prueba_local && $es_local) {
     $copia .= "Para: $destinatario\nAsunto: " . $asunto_base . " - " . $perfil . " - " . $nombre . "\n\n" . $cuerpo . "\n\n";
     $enviado = (@file_put_contents($carpeta_registro . "/correos_prueba.txt", $copia, FILE_APPEND | LOCK_EX) !== false);
 } else {
-    $enviado = @mail($destinatario, $asunto, $cuerpo, $headers);
+    if ($destinatario === "tu-correo@tudominio.cl") {
+        // Seguridad: evita perder mensajes si olvidaste configurar el correo de destino
+        error_log("AMERIKA: falta configurar \$destinatario en enviar.php");
+        $enviado = false;
+    } else {
+        $enviado = @mail($destinatario, $asunto, $cuerpo, $headers);
+    }
 }
 
 // main.js detecta ?enviado=1 y muestra la confirmación
