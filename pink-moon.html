@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page.pinkmoon.title">Pink Moon | Comercial Amerika SpA</title>
+  <link rel="canonical" href="https://www.comercialamerika.cl/pink-moon.html">
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <meta name="description" data-i18n-content="page.pinkmoon.desc"
+    content="Pink Moon: bebida frisante de Comary, Brasil, distribuida en exclusividad para Chile por Comercial Amerika. Experiencia y estilo.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <!-- Logo protagonista al centro; los menús se reparten a los lados -->
+      <nav class="nav nav-side-left" aria-label="Menú principal izquierda">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="marcas.html" class="active" data-i18n="nav.brands">Nuestras marcas</a>
+        </nav>
+
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" onerror="this.style.display='none'">
+      </a>
+
+      <nav class="nav nav-side-right" aria-label="Menú principal derecha">
+          <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
+          <a href="route-market.html" data-i18n="nav.route">Route to market</a>
+
+        <div class="lang-switch">
+          <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+          <span>|</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <!-- Botón destacado del menú (ver 3.2 del documento) -->
+        <a href="contacto.html" class="btn btn-dark" data-i18n="nav.distribute">Distribuye con nosotros</a>
+      </nav>
+
+      <button type="button" class="mobile-toggle" data-i18n-aria-label="nav.menu" aria-label="Menú"
+        aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <!-- ========== CONTROL DE EDAD 18+ ========== -->
+  <div class="age-modal" id="ageModal" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+    <div class="age-modal-content">
+      <span class="age-badge">⚠ +18</span>
+      <h2 id="ageTitle" data-i18n="age.title">Contenido para mayores de 18 años</h2>
+      <p data-i18n="age.text">Esta página muestra bebidas alcohólicas. Su venta está prohibida a menores de 18 años
+        (Ley 21.363).</p>
+      <div class="age-modal-actions">
+        <button type="button" class="btn btn-primary" id="btnAgeYes" data-i18n="age.yes">Sí, soy mayor de 18
+          años</button>
+        <button type="button" class="btn btn-outline" id="btnAgeNo" data-i18n="age.no">No, salir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 1. HERO DE LA MARCA ========== -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label" style="color: var(--color-green);" data-i18n="nav.brands">Nuestras marcas</p>
+      <h1>Pink Moon</h1>
+      <p style="margin-top: 0.75rem; font-size: 1.15rem; color: var(--color-text-muted); max-width: 560px;"
+        data-i18n="pm.tagline">Frisante · "Experiencia y estilo"</p>
+      <span class="age-badge" style="margin-top: 1rem;" data-i18n="age.badge">⚠ Bebida alcohólica · Solo para mayores de
+        18 años</span>
+
+      <div class="hero-actions" style="margin-top: 1.5rem;">
+        <a href="contacto.html" class="btn btn-primary" data-i18n="db.cta">Quiero venderla en mi negocio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <img src="img/pinkmoon-brindis.webp" alt="[Collage Pink Moon: consumidas en fiestas y ocasiones de estilo]" class="img-centrada"
+        style="max-width: 880px;">
+    </div>
+  </section>
+
+  <!-- ========== 2. HISTORIA BREVE ========== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="highlight-box">
+        <p data-i18n="pm.history">
+          Pink Moon es una bebida <strong>frisante</strong> (espumante suave) de <strong>Comary</strong>,
+          fabricante brasileño de bebidas desde 1952 (más de 70 años de historia).
+          Comercial Amerika la importa y distribuye en exclusividad para Chile.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. PORTAFOLIO ========== -->
+  <section class="section" style="background: var(--color-cream-dark); padding-top: 3.5rem;">
+    <div class="container">
+      <h2 data-i18n="pm.portfolio.title">Portafolio</h2>
+      <p style="color: var(--color-text-muted); margin-top: 0.5rem;" data-i18n="pm.portfolio.note">
+        Los sabores y formatos se confirman con Comary junto al material gráfico oficial.
+      </p>
+
+      <div class="brands-grid">
+        <div class="product-card">
+          <div class="product-image"><span data-i18n="pm.ph1">[PACKSHOT: botella Pink Moon]</span></div>
+          <h4 data-i18n="pm.pending">[Producto por confirmar]</h4>
+          <p data-i18n="pm.pending.desc">Formato y sabor por confirmar con Comary</p>
+        </div>
+        <div class="product-card">
+          <div class="product-image"><span data-i18n="pm.ph1">[PACKSHOT: botella Pink Moon]</span></div>
+          <h4 data-i18n="pm.pending">[Producto por confirmar]</h4>
+          <p data-i18n="pm.pending.desc">Formato y sabor por confirmar con Comary</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. FICHA COMERCIAL ========== -->
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="sheet.title">Ficha comercial para clientes</h2>
+      <p style="color: var(--color-text-muted); margin-top: 0.5rem;" data-i18n="sheet.note">Datos para pedir a Comary
+        junto a las fichas técnicas (sección 5.5 del documento).</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="sheet.data">Dato comercial</th>
+              <th data-i18n="sheet.value">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="sheet.format">Formato por unidad</td><td data-i18n="sheet.tbc">[confirmar con Comary]</td></tr>
+            <tr><td data-i18n="sheet.units">Unidades por caja</td><td data-i18n="sheet.tbc">[confirmar con Comary]</td></tr>
+            <tr><td data-i18n="sheet.ean">Código de barras (EAN)</td><td data-i18n="sheet.tbc">[confirmar con Comary]</td></tr>
+            <tr><td data-i18n="sheet.alcohol">Contenido alcohólico</td><td data-i18n="sheet.tbc">[confirmar con Comary]</td></tr>
+            <tr><td data-i18n="sheet.shelf">Vida útil</td><td data-i18n="sheet.tbc">[confirmar con Comary]</td></tr>
+            <tr><td data-i18n="sheet.channels">Canales disponibles</td><td data-i18n="sheet.channels.val">Supermercados ·
+                Conveniencia · Canal tradicional · HORECA</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5 Y 6. OCASIÓN DE CONSUMO + DÓNDE ENCONTRARLA ========== -->
+  <section class="section" style="background: var(--color-cream-dark);">
+    <div class="container">
+      <h2 data-i18n="pm.occasion.title">Ocasión de consumo</h2>
+      <p style="color: var(--color-text-muted); margin-top: 0.5rem;" data-i18n="pm.occasion.note">
+        Celebraciones, brindis y salidas. Personas mayores de 25 años y espacios privados (Ley 21.363).
+      </p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="hero-image" style="margin-bottom: 1rem;"><span data-i18n="pm.occ1.ph">[FOTO: asado o celebración en
+              casa, luces colgantes, brindis]</span></div>
+          <h4 data-i18n="pm.occ1.title">Celebración en casa</h4>
+          <p data-i18n="pm.occ1.text">Mesa al aire libre con luces colgantes y brindis al atardecer.</p>
+        </div>
+        <div class="card">
+          <div class="hero-image" style="margin-bottom: 1rem;"><span data-i18n="pm.occ2.ph">[FOTO: terraza urbana de
+              Santiago con la cordillera al fondo]</span></div>
+          <h4 data-i18n="pm.occ2.title">Terraza / after office</h4>
+          <p data-i18n="pm.occ2.text">Luz cálida de atardecer, copas y botella en foco.</p>
+        </div>
+        <div class="card">
+          <div class="hero-image" style="margin-bottom: 1rem;"><span data-i18n="pm.occ3.ph">[FOTO: producto en la góndola
+              o material POP]</span></div>
+          <h4 data-i18n="pm.occ3.title">Dónde encontrarla</h4>
+          <p data-i18n="pm.occ3.text">Supermercados, tiendas de conveniencia y canal tradicional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 7. LLAMADO FINAL ========== -->
+  <section class="cta-banner green">
+    <div class="container cta-banner-inner">
+      <h2 data-i18n="pm.cta2.title">¿Quieres vender Pink Moon en tu negocio?</h2>
+      <a href="contacto.html" class="btn btn-dark" data-i18n="db.cta">Quiero venderla en mi negocio</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo" onerror="this.style.display='none'">
+        <div class="footer-links">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
+          <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
+          <a href="route-market.html" data-i18n="nav.route">Route to market</a>
+          <a href="contacto.html" data-i18n="nav.contact">Contáctanos</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          <span data-i18n="footer.legal">Comercial Amerika SpA · RUT 78.474.378-0</span><br>
+          <span data-i18n="footer.contactline">[correo comercial] · Tel./WhatsApp +56 9 5610 0329</span><br>
+          <span data-i18n="footer.location">Colina, Región Metropolitana · Chile</span>
+        </div>
+        <div><span data-i18n="footer.rights">© 2026 Comercial Amerika SpA. Todos los derechos reservados.</span></div>
+      </div>
+      <p class="footer-age" data-i18n="footer.age">Venta de alcohol prohibida a menores de 18 años.</p>
+      <p class="footer-age"><a href="privacidad.html" data-i18n="footer.privacy">Política de privacidad</a></p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/56956100329?text=Hola%20Comercial%20Amerika,%20quisiera%20cotizar%20sus%20productos"
+    class="whatsapp-float" target="_blank" rel="noopener" data-i18n-aria-label="wa.aria"
+    aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.5-6.9 15.5-15.3S24.6.5 16 .5zm0 28.1c-2.5 0-4.8-.7-6.8-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.7-2-7.3 0-7 5.7-12.8 12.9-12.8S28.8 8.2 28.8 15.3 23.1 28.6 16 28.6zm7.2-9.6c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.7-.2-1 .2-.3.4-1.2 1.3-1.5 1.6-.3.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.3-1.1-2.1-2.5-2.4-2.9-.3-.4 0-.6.2-.9.2-.2.4-.5.6-.7.2-.2.3-.4.4-.6.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.6-.7-.9-.7h-.8c-.3 0-.6.1-1 .5-.3.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.2 6.6 5.9.9.4 1.6.6 2.2.8 1 .3 1.9.3 2.6.2.8-.1 2.4-1 2.7-1.9.3-.9.3-1.8.2-1.9-.1-.2-.4-.3-.8-.5z" />
+    </svg>
+  </a>
+
+  <!-- Aviso de cookies (Leyes 19.628 / 21.719): la lógica vive en js/main.js -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-inner">
+      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.</p>
+      <div class="cookie-actions">
+        <button type="button" class="btn-accept" id="cookieAccept" data-i18n="cookies.accept">Aceptar</button>
+        <button type="button" id="cookieReject" data-i18n="cookies.reject">Rechazar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

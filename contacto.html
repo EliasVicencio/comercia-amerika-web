@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page.contact.title">Contáctanos | Comercial Amerika SpA</title>
+  <link rel="canonical" href="https://www.comercialamerika.cl/contacto.html">
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <meta name="description" data-i18n-content="page.contact.desc"
+    content="Contáctanos: si eres una marca que busca distribuidor o un cliente que quiere comprar, te respondemos en menos de 24 horas hábiles. Colina, Región Metropolitana, Chile.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <!-- Logo protagonista al centro; los menús se reparten a los lados -->
+      <nav class="nav nav-side-left" aria-label="Menú principal izquierda">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
+        </nav>
+
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" onerror="this.style.display='none'">
+      </a>
+
+      <nav class="nav nav-side-right" aria-label="Menú principal derecha">
+          <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
+          <a href="route-market.html" data-i18n="nav.route">Route to market</a>
+
+        <div class="lang-switch">
+          <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+          <span>|</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <!-- Botón destacado del menú (ver 3.2 del documento) -->
+        <a href="contacto.html" class="btn btn-dark" data-i18n="nav.distribute">Distribuye con nosotros</a>
+      </nav>
+
+      <button type="button" class="mobile-toggle" data-i18n-aria-label="nav.menu" aria-label="Menú"
+        aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container contact-grid">
+
+      <!-- Datos directos -->
+      <div>
+        <p class="section-label" data-i18n="nav.contact">Contáctanos</p>
+        <h1 data-i18n="contact.h1">Conversemos</h1>
+        <p style="margin: 1rem 0 2rem; color: var(--color-text-muted);" data-i18n="contact.subtitle">
+          Elige la opción que mejor te describa en el formulario y te contactaremos
+          en menos de 24 horas hábiles.
+        </p>
+
+        <div class="contact-info">
+          <!-- TODO: reemplazar los textos entre [ ] con los datos reales -->
+          <div class="contact-item">
+            <strong data-i18n="contact.email.lbl">Correo comercial</strong>
+            <span data-i18n="contact.email.val">[correo comercial, ej: ventas@comercialamerika.cl]</span>
+          </div>
+
+          <div class="contact-item">
+            <strong data-i18n="contact.phone.lbl">Teléfono / WhatsApp</strong>
+            <span data-i18n="contact.phone.val">+56 9 5610 0329</span>
+            <small data-i18n="contact.hours">Horario de atención: lunes a viernes, 09:00 - 18:00 hrs</small>
+          </div>
+
+          <div class="contact-item">
+            <strong data-i18n="contact.office.lbl">Bodega y oficina</strong>
+            <span data-i18n="contact.office.val">Colina, Región Metropolitana · Chile</span>
+            <small data-i18n="contact.office.note">Solo distribución y despacho (no se recibe público)</small>
+          </div>
+        </div>
+
+        <!-- Mapa: usar el iframe de Google Maps de Colina; mientras tanto, placeholder -->
+        <div class="hero-image" style="aspect-ratio: 16/10; margin-top: 1.5rem;">
+          <span data-i18n="contact.map">[MAPA: bodega en Colina, Región Metropolitana]</span>
+        </div>
+      </div>
+
+      <!-- Formulario segmentado (punto 4.5 del documento) -->
+      <div class="contact-form">
+        <!-- Aviso que main.js muestra según la URL: ?enviado=1 o ?error=1 -->
+        <div id="formAlert" class="form-alert"></div>
+
+        <form action="php/enviar.php" method="POST">
+
+          <!-- 1) ¿Quién escribe? Campo "Soy…" para segmentar el mensaje.
+               El <option> traducido mantiene el value en español para el PHP. -->
+          <div class="form-group">
+            <label for="perfil" data-i18n="contact.form.perfil">Soy…</label>
+            <select name="perfil" id="perfil" required>
+              <option value="Marca o fabricante" data-i18n="contact.perfil1">Marca o fabricante</option>
+              <option value="Cliente: supermercado, almacén, HORECA" data-i18n="contact.perfil2">Cliente: supermercado,
+                almacén, HORECA</option>
+              <option value="Proveedor de servicios" data-i18n="contact.perfil3">Proveedor de servicios</option>
+              <option value="Postulante" data-i18n="contact.perfil4">Postulante (trabaja con nosotros)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre" data-i18n="contact.form.name">Nombre</label>
+              <input type="text" name="nombre" id="nombre" required data-i18n-placeholder="contact.ph.name"
+                placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+              <label for="empresa" data-i18n="contact.form.company">Empresa</label>
+              <input type="text" name="empresa" id="empresa" data-i18n-placeholder="contact.ph.company"
+                placeholder="Nombre de tu empresa">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cargo" data-i18n="contact.form.cargo">Cargo</label>
+              <input type="text" name="cargo" id="cargo" data-i18n-placeholder="contact.ph.cargo"
+                placeholder="Ej: Jefe de compras">
+            </div>
+            <div class="form-group">
+              <label for="pais" data-i18n="contact.form.country">País</label>
+              <select name="pais" id="pais">
+                <option value="Chile" data-i18n="contact.pais1">Chile</option>
+                <option value="Perú" data-i18n="contact.pais2">Perú</option>
+                <option value="Argentina" data-i18n="contact.pais3">Argentina</option>
+                <option value="Otro" data-i18n="contact.pais4">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" data-i18n="contact.form.email">Correo</label>
+              <input type="email" name="email" id="email" required data-i18n-placeholder="contact.ph.email"
+                placeholder="correo@empresa.com">
+            </div>
+            <div class="form-group">
+              <label for="telefono" data-i18n="contact.form.phone">Teléfono</label>
+              <input type="tel" name="telefono" id="telefono" data-i18n-placeholder="contact.ph.phone"
+                placeholder="+56 9 ...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje" data-i18n="contact.form.message">Mensaje</label>
+            <textarea name="mensaje" id="mensaje" required data-i18n-placeholder="contact.ph.message"
+              placeholder="Cuéntanos qué buscas: distribuir una marca (fabricantes) o comprar nuestros productos (clientes)"></textarea>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" name="privacidad" id="privacidad" required value="SI">
+            <!-- El enlace "política de privacidad" abre el modal de consentimiento
+                 (Leyes 19.628 y 21.719); ver initConsentModal en js/main.js -->
+            <label for="privacidad" data-i18n="contact.form.privacy">
+              Acepto el tratamiento de mis datos según la <a href="#" data-consent-open>política de privacidad</a>
+              (Ley 19.628 y Ley 21.719).
+            </label>
+          </div>
+
+          <div class="form-check">
+            <!-- Segunda casilla: OPCIONAL (finalidad secundaria, el usuario decide) -->
+            <input type="checkbox" name="comunicaciones" id="comunicaciones" value="SI">
+            <label for="comunicaciones" data-i18n="contact.form.comms">
+              Autorizo el envío de comunicaciones comerciales, ofertas y novedades de Comercial Amerika SpA por medios
+              electrónicos (Email/WhatsApp). Opcional.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;"
+            data-i18n="contact.form.submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MODAL: CONSENTIMIENTO DE DATOS ========== -->
+  <!-- Mismo mecanismo que teamModal (nosotros.html): .custom-modal + .show -->
+  <div id="consentModal" class="custom-modal">
+    <div class="custom-modal-content consent-modal-content">
+      <span class="custom-modal-close" id="btnCloseConsent" role="button" tabindex="0"
+        data-i18n-aria-label="common.close" aria-label="Cerrar">&times;</span>
+      <h2 style="color: var(--color-navy); font-size: 1.3rem;" data-i18n="consent.title">
+        Información básica sobre protección de datos
+      </h2>
+
+      <ul class="consent-list">
+        <li><strong data-i18n="consent.r1.lbl">Responsable del Tratamiento:</strong>
+          <span data-i18n="consent.r1.val">Comercial Amerika SpA, RUT 78.474.378-0, domiciliado en Colina,
+            Región Metropolitana, Chile.</span></li>
+        <li><strong data-i18n="consent.r2.lbl">Finalidad Principal:</strong>
+          <span data-i18n="consent.r2.val">Gestionar su solicitud de contacto, procesar su solicitud de compra o
+            distribución y/o responder a las consultas enviadas a través de este formulario.</span></li>
+        <li><strong data-i18n="consent.r3.lbl">Bases de Licitud:</strong>
+          <span data-i18n="consent.r3.val">Ejecución del contrato/servicio solicitado y su consentimiento
+            explícito.</span></li>
+        <li><strong data-i18n="consent.r4.lbl">Plazo de Conservación:</strong>
+          <span data-i18n="consent.r4.val">Los datos se conservarán únicamente durante el tiempo necesario para
+            cumplir con la finalidad descrita o mientras no solicite su supresión.</span></li>
+        <li><strong data-i18n="consent.r5.lbl">Destinatarios:</strong>
+          <span data-i18n="consent.r5.val">No se cederán datos a terceros salvo obligación legal o proveedores
+            tecnológicos esenciales bajo estricto contrato de encargo de tratamiento.</span></li>
+        <li><strong data-i18n="consent.r6.lbl">Derechos (ARSOP):</strong>
+          <span data-i18n="consent.r6.val">Usted tiene derecho a acceder, rectificar, suprimir, oponerse y solicitar
+            la portabilidad de sus datos personales, así como a revocar este consentimiento en cualquier momento.
+            Puede ejercerlos enviando un correo electrónico a [correo de privacidad]. Para más detalle, consulte
+            nuestra <a href="privacidad.html">Política de Privacidad completa</a>.</span></li>
+      </ul>
+
+      <h3 style="font-size: 1.05rem; color: var(--color-navy);" data-i18n="consent.dec.title">
+        Declaración de Consentimiento
+      </h3>
+      <div class="form-check">
+        <!-- Obligatoria: sin ella no se puede aceptar ni avanzar -->
+        <input type="checkbox" id="consentObligatoria" value="SI">
+        <label for="consentObligatoria" data-i18n="consent.dec1">Acepto el tratamiento de mis datos personales para las
+          finalidades principales descritas arriba (opción obligatoria: sin ella no se puede avanzar).</label>
+      </div>
+      <div class="form-check">
+        <!-- Opcional: el usuario decide si quiere recibir comunicaciones -->
+        <input type="checkbox" id="consentComunicaciones" value="SI">
+        <label for="consentComunicaciones" data-i18n="consent.dec2">Autorizo el envío de comunicaciones comerciales,
+          ofertas y novedades de Comercial Amerika SpA por medios electrónicos (Email/WhatsApp). Opcional.</label>
+      </div>
+      <div class="consent-actions">
+        <button type="button" class="btn-consent-accept" id="btnConsentAccept"
+          data-i18n="consent.accept" disabled>Aceptar y continuar</button>
+        <button type="button" class="btn-consent-reject" id="btnConsentReject"
+          data-i18n="consent.reject">Rechazar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo" onerror="this.style.display='none'">
+        <div class="footer-links">
+          <a href="index.html" data-i18n="nav.home">Inicio</a>
+          <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
+          <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
+          <a href="route-market.html" data-i18n="nav.route">Route to market</a>
+          <a href="contacto.html" data-i18n="nav.contact">Contáctanos</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          <span data-i18n="footer.legal">Comercial Amerika SpA · RUT 78.474.378-0</span><br>
+          <span data-i18n="footer.contactline">[correo comercial] · Tel./WhatsApp +56 9 5610 0329</span><br>
+          <span data-i18n="footer.location">Colina, Región Metropolitana · Chile</span>
+        </div>
+        <div><span data-i18n="footer.rights">© 2026 Comercial Amerika SpA. Todos los derechos reservados.</span></div>
+      </div>
+      <p class="footer-age" data-i18n="footer.age">Venta de alcohol prohibida a menores de 18 años.</p>
+      <p class="footer-age"><a href="privacidad.html" data-i18n="footer.privacy">Política de privacidad</a></p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/56956100329?text=Hola%20Comercial%20Amerika,%20quisiera%20cotizar%20sus%20productos"
+    class="whatsapp-float" target="_blank" rel="noopener" data-i18n-aria-label="wa.aria"
+    aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.5-6.9 15.5-15.3S24.6.5 16 .5zm0 28.1c-2.5 0-4.8-.7-6.8-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.7-2-7.3 0-7 5.7-12.8 12.9-12.8S28.8 8.2 28.8 15.3 23.1 28.6 16 28.6zm7.2-9.6c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.7-.2-1 .2-.3.4-1.2 1.3-1.5 1.6-.3.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.3-1.1-2.1-2.5-2.4-2.9-.3-.4 0-.6.2-.9.2-.2.4-.5.6-.7.2-.2.3-.4.4-.6.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.6-.7-.9-.7h-.8c-.3 0-.6.1-1 .5-.3.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.2 6.6 5.9.9.4 1.6.6 2.2.8 1 .3 1.9.3 2.6.2.8-.1 2.4-1 2.7-1.9.3-.9.3-1.8.2-1.9-.1-.2-.4-.3-.8-.5z" />
+    </svg>
+  </a>
+
+  <!-- Aviso de cookies (Leyes 19.628 / 21.719): la lógica vive en js/main.js -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-inner">
+      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.</p>
+      <div class="cookie-actions">
+        <button type="button" class="btn-accept" id="cookieAccept" data-i18n="cookies.accept">Aceptar</button>
+        <button type="button" id="cookieReject" data-i18n="cookies.reject">Rechazar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
