@@ -1,2 +1,47 @@
+# ============================================
+# .gitignore - Comercial Amerika (sitio estático)
+# ============================================
+
+# --- Imágenes de respaldo / limpieza no publicada ---
+# Material fuera de uso que se movió aquí en la limpieza de img/
+_img-no-usadas/
+
+# --- Documentos internos (no van al sitio público) ---
 Cotizacion_Rediseno_Web_Comercial_Amerika.pdf
 Reestructuracion_Sitio_Web_Comercial_Amerika.md
+*.pdf
+
+# --- Sistema operativo ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Editores ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Backups y temporales locales ---
+*.bak
+*.tmp
+*~
+_backup/
+tmp/
+
+# --- Node (por si agregamos build tools algún día) ---
+node_modules/
+package-lock.json
+
+# --- Logs ---
+*.log
+
+# --- Datos sensibles / credenciales (nunca subir) ---
+# Credenciales de correo, API keys de Google Analytics/GTM, claves FTP, etc.
+# TODO: si algún día main.js o enviar.php llevan claves reales,
+# moverlas a un archivo tipo config.local.js / config.local.php lista aquí:
+*-secret.php
+config.local.*
+credentials.*
+.env
+.env.*
