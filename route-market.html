@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,23 +16,24 @@
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
   <header class="header">
     <div class="container header-inner">
       <!-- Logo protagonista al centro; los menús se reparten a los lados -->
       <nav class="nav nav-side-left" aria-label="Menú principal izquierda">
-          <a href="index.html" data-i18n="nav.home">Inicio</a>
-          <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
-        </nav>
+        <a href="index.html" data-i18n="nav.home">Inicio</a>
+        <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
+      </nav>
 
       <a href="index.html" class="logo">
         <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" onerror="this.style.display='none'">
       </a>
 
       <nav class="nav nav-side-right" aria-label="Menú principal derecha">
-          <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
-          <a href="route-market.html" class="active" data-i18n="nav.route">Route to market</a>
+        <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
+        <a href="route-market.html" class="active" data-i18n="nav.route">Route to market</a>
 
         <div class="lang-switch">
           <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
@@ -61,94 +63,161 @@
   </section>
 
   <!-- ========== CANALES QUE ATENDEMOS ========== -->
-  <section class="section" style="padding-top: 1.5rem;">
+  <section class="section">
     <div class="container">
-      <h2 data-i18n="route.channels.title">Canales que atendemos</h2>
+      <p class="section-label">Estrategia Multicanal</p>
+      <h2>Canales que atendemos</h2>
 
       <div class="cards-grid">
-        <div class="channel-card">
-          <h3 data-i18n="route.ch1.title">Supermercados</h3>
-          <p data-i18n="route.ch1.text">Cadenas grandes y regionales. Rol de la marca: volumen y visibilidad.</p>
+        <div class="channel-card-enhanced">
+          <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=600&q=80"
+            alt="Supermercados" class="card-img-header">
+          <h3>Supermercados</h3>
+          <p>Cadenas grandes y regionales en todo Chile. Enfoque estratégico: volumen de venta masivo y alta visibilidad
+            de marca.</p>
         </div>
-        <div class="channel-card">
-          <h3 data-i18n="route.ch2.title">Tiendas de conveniencia</h3>
-          <p data-i18n="route.ch2.text">Compras rápidas y alta rotación. Ideal para bebidas listas para beber.</p>
+
+        <div class="channel-card-enhanced">
+          <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=600&q=80"
+            alt="Tiendas de conveniencia" class="card-img-header">
+          <h3>Tiendas de conveniencia</h3>
+          <p>Puntos de compra rápida con alta rotación diaria. Canal ideal para bebidas RTD (Ready to Drink) y snacks.
+          </p>
         </div>
-        <div class="channel-card">
-          <h3 data-i18n="route.ch3.title">Canal tradicional y mayoristas</h3>
-          <p data-i18n="route.ch3.text">Almacenes de barrio y distribuidores. Rol: cobertura y presencia en cada
+
+        <div class="channel-card-enhanced">
+          <img src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=600&q=80"
+            alt="Canal tradicional y mayoristas" class="card-img-header">
+          <h3>Canal tradicional y mayoristas</h3>
+          <p>Almacenes de barrio, botillerías y mayoristas. Cobertura capilar extensa para asegurar presencia en cada
             comuna.</p>
         </div>
-        <div class="channel-card">
-          <h3 data-i18n="route.ch4.title">HORECA</h3>
-          <p data-i18n="route.ch4.text">Hoteles, restaurantes y cafeterías. Rol: ocasiones de consumo y valor de
-            marca.</p>
+
+        <div class="channel-card-enhanced">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"
+            alt="HORECA" class="card-img-header">
+          <h3>HORECA</h3>
+          <p>Hoteles, restaurantes, bares y cafeterías. Posicionamiento en ocasiones clave de consumo y construcción de
+            valor.</p>
         </div>
-        <div class="channel-card">
-          <h3 data-i18n="route.ch5.title">Tiendas especializadas</h3>
-          <p data-i18n="route.ch5.text">Gourmet y salud. Rol: posicionamiento premium.</p>
+
+        <div class="channel-card-enhanced">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80"
+            alt="Tiendas especializadas" class="card-img-header">
+          <h3>Tiendas especializadas</h3>
+          <p>Establecimientos gourmet, tiendas de nicho y salud. Enfoque directo en consumidores premium y exigentes.
+          </p>
         </div>
-        <div class="channel-card">
-          <h3 data-i18n="route.ch6.title">E-commerce</h3>
-          <p data-i18n="route.ch6.text">Ventas online y apps de despacho. Rol: alcance directo al consumidor.</p>
+
+        <div class="channel-card-enhanced">
+          <img src="img/catalogo-ecommerce.jpg"
+            alt="E-commerce" class="card-img-header">
+          <h3>E-commerce</h3>
+          <p>Plataformas digitales propias, marketplaces y apps de despacho rápido para alcanzar al cliente final
+            directamente.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== COBERTURA Y LOGÍSTICA ========== -->
-  <section class="section" style="background: var(--color-cream-dark); padding-top: 3.5rem;">
+  <section class="section" style="background: var(--color-cream-dark);">
     <div class="container hero-grid">
       <div>
-        <h2 data-i18n="route.coverage.title">Cobertura y logística</h2>
-        <p style="margin-top: 1rem; color: var(--color-text-muted);" data-i18n="route.coverage.p1">
-          Operamos desde nuestro centro de almacenaje y distribución en <strong>Colina,
-          Región Metropolitana</strong>, con distribución en <strong>Chile, Perú y Argentina</strong>.
+        <p class="section-label">Infraestructura</p>
+        <h2>Cobertura y logística regional</h2>
+        <p style="margin-top: 1rem; color: var(--color-text-muted);">
+          Operamos estratégicamente desde nuestro centro de almacenaje y distribución ubicado en <strong>Colina, Región
+            Metropolitana</strong>. Desde esta central articulamos operaciones de importación y distribución en
+          <strong>Chile, Perú y Argentina</strong>.
         </p>
       </div>
+
       <div class="hero-image">
-        <span data-i18n="route.coverage.image">[MAPA DE CHILE, PERÚ Y ARGENTINA: cobertura hoy y proyectada]</span>
+        <div class="map-placeholder">
+          <span class="map-badge">RED CONO SUR</span>
+          <h3 style="color: white; margin-bottom: 0.5rem;">Chile · Perú · Argentina</h3>
+          <p style="font-size: 0.85rem; opacity: 0.8; max-width: 280px;">Centro Operativo Principal: Colina, Santiago de
+            Chile</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CÓMO TRABAJAMOS CON UNA MARCA: 5 PASOS ========== -->
+  <!-- ========== CÓMO TRABAJAMOS CON UNA MARCA (Paso a paso dinámico) ========== -->
   <section class="section">
     <div class="container">
-      <h2 data-i18n="route.steps.title">Cómo trabajamos con una marca</h2>
+      <p class="section-label">Proceso Integrado</p>
+      <h2>Cómo trabajamos con una marca</h2>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div>
-            <h3 data-i18n="route.step1.title">Evaluación de la marca y del mercado</h3>
-            <p data-i18n="route.step1.text">Analizamos el potencial del producto, la competencia y la oportunidad por
-              canal.</p>
+      <div class="steps-timeline">
+        <!-- Paso 1 -->
+        <div class="step-row">
+          <div class="step-content">
+            <div class="step-badge">1</div>
+            <h3>Evaluación de la marca y del mercado</h3>
+            <p>Analizamos exhaustivamente el potencial del producto, la competencia local y las oportunidades reales por
+              canal de venta.</p>
+          </div>
+          <div class="step-image-container">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80"
+              alt="Evaluación de mercado">
           </div>
         </div>
-        <div class="step-item">
-          <div>
-            <h3 data-i18n="route.step2.title">Registros y cumplimiento</h3>
-            <p data-i18n="route.step2.text">SAG, SEREMI de Salud, Aduanas y etiquetado con sellos chilenos, desde el
-              origen.</p>
+
+        <!-- Paso 2 -->
+        <div class="step-row reverse">
+          <div class="step-content">
+            <div class="step-badge">2</div>
+            <h3>Registros y cumplimiento normativo</h3>
+            <p>Tramitación ante SAG, SEREMI de Salud, Aduanas y adecuación de etiquetado con sellos locales directos
+              desde origen.</p>
+          </div>
+          <div class="step-image-container">
+            <img src="img/cumplimiento_normativo.jpg"
+              alt="Cumplimiento normativo">
           </div>
         </div>
-        <div class="step-item">
-          <div>
-            <h3 data-i18n="route.step3.title">Estrategia comercial y de precios por canal</h3>
-            <p data-i18n="route.step3.text">Posicionamiento, surtido y planes promocionales para cada tipo de
+
+        <!-- Paso 3 -->
+        <div class="step-row">
+          <div class="step-content">
+            <div class="step-badge">3</div>
+            <h3>Estrategia comercial y precios por canal</h3>
+            <p>Definición de arquitectura de precios, surtido de SKUs óptimo y planes de promoción adaptados a cada
               cliente.</p>
           </div>
-        </div>
-        <div class="step-item">
-          <div>
-            <h3 data-i18n="route.step4.title">Ingreso a cadenas y distribución</h3>
-            <p data-i18n="route.step4.text">Negociación de entrada y despacho desde la bodega de Colina.</p>
+          <div class="step-image-container">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80"
+              alt="Estrategia comercial">
           </div>
         </div>
-        <div class="step-item">
-          <div>
-            <h3 data-i18n="route.step5.title">Ejecución en punto de venta y marketing</h3>
-            <p data-i18n="route.step5.text">Lanzamientos, degustaciones y trade marketing para que la marca rote.</p>
+
+        <!-- Paso 4 -->
+        <div class="step-row reverse">
+          <div class="step-content">
+            <div class="step-badge">4</div>
+            <h3>Ingreso a cadenas y distribución eficiente</h3>
+            <p>Negociación de entrada en cadenas de retail y distribución continua desde nuestro centro logístico en
+              Colina.</p>
+          </div>
+          <div class="step-image-container">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80"
+              alt="Centro logístico">
+          </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="step-row">
+          <div class="step-content">
+            <div class="step-badge">5</div>
+            <h3>Ejecución en punto de venta y marketing</h3>
+            <p>Activaciones en PDV, lanzamientos, degustaciones presenciales y trade marketing para impulsar la rotación
+              constante.</p>
+          </div>
+          <div class="step-image-container">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=700&q=80"
+              alt="Punto de venta">
           </div>
         </div>
       </div>
@@ -156,30 +225,42 @@
   </section>
 
   <!-- ========== SERVICIOS DE VALOR AGREGADO ========== -->
-  <section class="section" style="background: var(--color-cream-dark); padding-top: 3.5rem;">
+  <section class="section" style="background: var(--color-cream-dark);">
     <div class="container">
-      <h2 data-i18n="route.services.title">Servicios de valor agregado</h2>
+      <p class="section-label">Soporte Continuo</p>
+      <h2>Servicios de valor agregado</h2>
 
       <div class="cards-grid">
         <div class="card">
-          <h3 data-i18n="route.srv1.title">Marketing y trade marketing</h3>
-          <p data-i18n="route.srv1.text">Lanzamientos, degustaciones, activaciones y presencia en ferias.</p>
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80"
+            alt="Marketing" class="card-img-header">
+          <h3>Marketing y trade marketing</h3>
+          <p>Lanzamientos dinámicos, degustaciones guiadas, presencia en ferias sectoriales y activaciones de marca
+            directas.</p>
         </div>
+
         <div class="card">
-          <h3 data-i18n="route.srv2.title">Asesoría regulatoria</h3>
-          <p data-i18n="route.srv2.text">Etiquetado y registros chilenos resueltos desde el país de origen.</p>
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
+            alt="Asesoría regulatoria" class="card-img-header">
+          <h3>Asesoría regulatoria integral</h3>
+          <p>Revisión de etiquetado, tablas nutricionales y tramitación de registros normativos en Chile resueltos desde
+            el país de origen.</p>
         </div>
+
         <div class="card">
-          <h3 data-i18n="route.srv3.title">Reportes de venta y rotación</h3>
-          <p data-i18n="route.srv3.text">Seguimiento periódico para tomar decisiones con datos.</p>
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+            alt="Reportes" class="card-img-header">
+          <h3>Reportes de venta y rotación</h3>
+          <p>Monitoreo constante de inventarios, sell-out por canal y reportes periódicos para decisiones informadas.
+          </p>
         </div>
       </div>
 
       <div class="highlight-box">
-        <p><strong data-i18n="route.model.title">Modelo de acuerdo transparente.</strong><span
-            data-i18n="route.model.text">
-            Las condiciones comerciales (márgenes, plazos y compromisos de servicio) se conversan en reunión con cada
-            marca.</span>
+        <p>
+          <strong>Modelo de acuerdo transparente:</strong> Las condiciones comerciales (márgenes, plazos de pago y
+          compromisos de nivel de servicio) se definen de manera personalizada en reuniones estratégicas con cada
+          representación.
         </p>
       </div>
     </div>
@@ -196,12 +277,14 @@
       <div class="cards-grid">
         <div class="card">
           <h3 data-i18n="route.trend1.title">Conveniencia</h3>
-          <p data-i18n="route.trend1.text">Aumento de alimentos preparados, compras online y entregas a domicilio (80% de
+          <p data-i18n="route.trend1.text">Aumento de alimentos preparados, compras online y entregas a domicilio (80%
+            de
             relevancia según estudio citado en el diagnóstico).</p>
         </div>
         <div class="card">
           <h3 data-i18n="route.trend2.title">Salud y bienestar</h3>
-          <p data-i18n="route.trend2.text">Crecimiento en la búsqueda de productos saludables y con etiquetas claras (65%
+          <p data-i18n="route.trend2.text">Crecimiento en la búsqueda de productos saludables y con etiquetas claras
+            (65%
             según estudio citado en el diagnóstico).</p>
         </div>
         <div class="card">
@@ -224,7 +307,8 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
-        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo" onerror="this.style.display='none'">
+        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo"
+          onerror="this.style.display='none'">
         <div class="footer-links">
           <a href="index.html" data-i18n="nav.home">Inicio</a>
           <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
@@ -258,7 +342,9 @@
   <!-- Aviso de cookies (Leyes 19.628 / 21.719): la lógica vive en js/main.js -->
   <div class="cookie-banner" id="cookieBanner" hidden>
     <div class="cookie-inner">
-      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.</p>
+      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y
+        mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.
+      </p>
       <div class="cookie-actions">
         <button type="button" class="btn-accept" id="cookieAccept" data-i18n="cookies.accept">Aceptar</button>
         <button type="button" id="cookieReject" data-i18n="cookies.reject">Rechazar</button>
@@ -268,4 +354,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
