@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
   <!-- ========== HEADER ========== -->
@@ -23,17 +25,17 @@
     <div class="container header-inner">
       <!-- Logo protagonista al centro; los menús se reparten a los lados -->
       <nav class="nav nav-side-left" aria-label="Menú principal izquierda">
-          <a href="index.html" class="active" data-i18n="nav.home">Inicio</a>
-          <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
-        </nav>
+        <a href="index.html" class="active" data-i18n="nav.home">Inicio</a>
+        <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
+      </nav>
 
       <a href="index.html" class="logo">
         <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" onerror="this.style.display='none'">
       </a>
 
       <nav class="nav nav-side-right" aria-label="Menú principal derecha">
-          <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
-          <a href="route-market.html" data-i18n="nav.route">Route to market</a>
+        <a href="nosotros.html" data-i18n="nav.about">Quiénes somos</a>
+        <a href="route-market.html" data-i18n="nav.route">Route to market</a>
 
         <div class="lang-switch">
           <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
@@ -56,11 +58,7 @@
       <div class="hero-content">
         <p class="section-label" data-i18n="hero.label">Chile · Perú · Argentina</p>
         <h1 data-i18n="hero.title">Llevamos grandes marcas a la mesa de Chile y la Región Andina</h1>
-        <p data-i18n="hero.subtitle">Importamos, comercializamos y distribuimos alimentos y bebidas en supermercados,
-          conveniencia, canal tradicional y HORECA.</p>
-
-        <!-- Mensajes que rotan solos (el JS los cambia cada 4 s) -->
-        <p class="hero-rotator" id="heroRotator" aria-live="polite"></p>
+        <p data-i18n="hero.subtitle">Alimentos y bebidas importados y distribuidos en todo Chile y la Región Andina.</p>
 
         <div class="hero-actions">
           <a href="marcas.html" class="btn btn-primary" data-i18n="hero.cta1">Ver nuestras marcas</a>
@@ -106,64 +104,41 @@
     </div>
   </div>
 
-  <!-- ========== 4. NUESTRAS MARCAS ========== -->
-  <section class="section">
+    <!-- ========== 1. HERO (estilo vitrina) ==========
+     Reemplaza TODA la <section class="hero"> ... </section> actual de index.html por este bloque. -->
+  <section class="hero-showcase">
     <div class="container">
-      <h2 data-i18n="brands.title">Nuestras marcas</h2>
+      <h1 class="hs-title">
+        <span class="hs-kicker" data-i18n="hero.kicker">Llevamos grandes marcas</span>
+        <span class="hs-headline" data-i18n="hero.headline">A la mesa de Chile</span>
+      </h1>
+      <p class="hs-sub" data-i18n="hero.subtitle">Alimentos y bebidas importados y distribuidos en todo Chile y la
+        Región Andina.</p>
 
-      <div class="brands-grid">
-        <a href="drinkball.html" class="brand-card">
-          <div class="brand-logo">
-            <!-- Logo oficial: img/drinkball.png (material de Comary) -->
-            <img src="img/drinkball.png" alt="Logo DrinkBall"
-              onerror="this.outerHTML='<span>[LOGO DRINKBALL]</span>'">
-          </div>
-          <h4 data-i18n="brands.drinkball.name">DrinkBall</h4>
-          <p data-i18n="brands.drinkball.desc">Cócteles listos para beber · RTD</p>
-        </a>
-
-        <a href="pink-moon.html" class="brand-card">
-          <div class="brand-logo">
-            <!-- Logo oficial: img/logo-pink-moon.jpg (material de Comary) -->
-            <img src="img/logo-pink-moon.jpg" alt="Logo Pink Moon"
-              onerror="this.outerHTML='<span>[LOGO PINK MOON]</span>'">
-          </div>
-          <h4 data-i18n="brands.pinkmoon.name">Pink Moon</h4>
-          <p data-i18n="brands.pinkmoon.desc">Frisante · Experiencia y estilo</p>
-        </a>
-
-        <div class="brand-card">
-          <div class="brand-logo">
-            <img src="img/Phantom (2).jpg" alt="Logo Phantom" onerror="this.outerHTML='<span>[LOGO PHANTOM]</span>'">
-          </div>
-          <h4 data-i18n="brands.phantom.name">Phantom</h4>
-          <p data-i18n="brands.phantom.desc">Bebida energética</p>
-        </div>
-
-        <div class="brand-card">
-          <div class="brand-logo">
-            <img src="img/logo-b-myfoods.jpg" alt="Logo My Foods" onerror="this.outerHTML='<span>[LOGO MY FOODS]</span>'">
-          </div>
-          <h4 data-i18n="brands.myfoods.name">My Foods</h4>
-          <p data-i18n="brands.myfoods.desc">Alimentos sin gluten</p>
-        </div>
-
-        <div class="brand-card">
-          <div class="brand-logo">
-            <img src="img/cacao-lat.jpg" alt="Logo Cacaolat" onerror="this.outerHTML='<span>[LOGO CACAOLAT]</span>'">
-          </div>
-          <h4 data-i18n="brands.cacaolat.name">CacaoLat</h4>
-          <p data-i18n="brands.cacaolat.desc">Batidos lácteos de cacao</p>
-        </div>
-
-        <div class="brand-card">
-          <div class="brand-logo">
-            <img src="img/top-k9.png" alt="Logo Top-K9" onerror="this.outerHTML='<span>[LOGO TOP-K9]</span>'">
-          </div>
-          <h4 data-i18n="brands.topk9.name">Top-K9</h4>
-          <p data-i18n="brands.topk9.desc">Productos para mascotas</p>
-        </div>
+      <div class="hs-actions">
+        <a href="marcas.html" class="hs-btn primary" data-i18n="hero.cta1">Ver nuestras marcas</a>
+        <a href="contacto.html" class="hs-btn ghost" data-i18n="hero.cta2">Distribuye con nosotros</a>
       </div>
+    </div>
+
+    <!-- Fila de productos sobre la "mesa". Lo ideal son PNG con fondo transparente.
+       --s = tamaño relativo (1 = normal)   --d = retraso de la animación de entrada
+       Para cambiar productos: reemplaza el src. Para agregar/quitar: copia o borra una línea <img>. -->
+    <div class="hs-shelf" aria-hidden="true">
+      <img class="hs-item" style="--s:.80; --d:.05s" src="img/pinkmoon-logo.png" alt="" decoding="async"
+        onerror="this.style.display='none'">
+      <img class="hs-item" style="--s:.95; --d:.15s" src="img/Phantom (2).jpg" alt="" decoding="async"
+        onerror="this.style.display='none'">
+      <img class="hs-item" style="--s:1.10; --d:.25s" src="img/drinkball02.png" alt="" decoding="async"
+        onerror="this.style.display='none'">
+      <img class="hs-item" style="--s:1.20; --d:.35s" src="img/drink-sabores.png" alt="" decoding="async"
+        onerror="this.style.display='none'">
+      <img class="hs-item" style="--s:1.05; --d:.45s" src="img/caipirissima.png" alt="" decoding="async"
+        onerror="this.style.display='none'">
+      <img class="hs-item" style="--s:.95; --d:.55s" src="img/banana-split.png" alt="" decoding="async"
+        onerror="this.style.display='none'">
+      <img class="hs-item" style="--s:.80; --d:.65s" src="img/doce-de-leite.png" alt="" decoding="async"
+        onerror="this.style.display='none'">
     </div>
   </section>
 
@@ -171,7 +146,8 @@
   <section class="section" style="background: var(--color-cream-dark);">
     <div class="container hero-grid">
       <div class="hero-image">
-        <img src="img/drinkball02.png" alt="DrinkBall y Pink Moon" onerror="this.outerHTML='<span>[IMAGEN DESTACADO]</span>'">
+        <img src="img/drinkball02.png" alt="DrinkBall y Pink Moon"
+          onerror="this.outerHTML='<span>[IMAGEN DESTACADO]</span>'">
       </div>
       <div>
         <p class="section-label" data-i18n="featured.label">Lanzamiento</p>
@@ -228,7 +204,8 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
-        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo" onerror="this.style.display='none'">
+        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo"
+          onerror="this.style.display='none'">
         <div class="footer-links">
           <a href="index.html" data-i18n="nav.home">Inicio</a>
           <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
@@ -270,7 +247,9 @@
   <!-- Aviso de cookies (Leyes 19.628 / 21.719): la lógica vive en js/main.js -->
   <div class="cookie-banner" id="cookieBanner" hidden>
     <div class="cookie-inner">
-      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.</p>
+      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y
+        mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.
+      </p>
       <div class="cookie-actions">
         <button type="button" class="btn-accept" id="cookieAccept" data-i18n="cookies.accept">Aceptar</button>
         <button type="button" id="cookieReject" data-i18n="cookies.reject">Rechazar</button>
@@ -280,4 +259,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>

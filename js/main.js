@@ -54,12 +54,12 @@
       // ---------- Inicio ----------
       'hero.label': 'Chile · Perú · Argentina',
       'hero.title': 'Llevamos grandes marcas a la mesa de Chile y la Región Andina',
-      'hero.subtitle': 'Importamos, comercializamos y distribuimos alimentos y bebidas en supermercados, conveniencia, canal tradicional y HORECA.',
+      'hero.subtitle': 'Alimentos y bebidas importados y distribuidos en todo Chile y la Región Andina.',
       'hero.cta1': 'Ver nuestras marcas',
       'hero.cta2': 'Distribuye con nosotros',
-      'hero.rot1': 'Marcas internacionales con respaldo de fábrica: Comary · Vieira · My Foods',
-      'hero.rot2': 'Cobertura real: supermercados, conveniencia, canal tradicional y HORECA',
-      'hero.rot3': 'Importación directa, registros sanitarios y distribución en Chile y la Región Andina',
+      'hero.rot1': 'Cobertura real: supermercados, conveniencia, canal tradicional y HORECA',
+      'impact.title': 'Marcas que se venden solas',
+      'impact.cta': 'Ver portafolio',
       'hero.image': '[VIDEO CORTO O CARRUSEL: góndola con productos · bodega en Colina · brindis con DrinkBall]',
       'paths.brand.title': 'Soy una marca o fabricante',
       'paths.brand.text': 'Busco un distribuidor en Chile, Perú o Argentina para mi marca de alimentos o bebidas.',
@@ -318,19 +318,6 @@
       'pm.cta2.title': '¿Quieres vender Pink Moon en tu negocio?',
 
       // ---------- Ficha comercial (común a ambas marcas) ----------
-      'sheet.title': 'Ficha comercial para clientes',
-      'sheet.note': 'Datos para pedir a Comary junto a las fichas técnicas (sección 5.5 del documento).',
-      'sheet.data': 'Dato comercial',
-      'sheet.value': 'Valor',
-      'sheet.format': 'Formato por unidad',
-      'sheet.units': 'Unidades por caja',
-      'sheet.ean': 'Código de barras (EAN)',
-      'sheet.alcohol': 'Contenido alcohólico',
-      'sheet.shelf': 'Vida útil',
-      'sheet.channels': 'Canales disponibles',
-      'sheet.tbc': '[confirmar con Comary]',
-      'sheet.channels.val': 'Supermercados · Conveniencia · Canal tradicional · HORECA',
-      'sheet.note.pm': 'Sabores y formatos por confirmar con Comary.',
 
       // ---------- Política de privacidad ----------
       'page.privacy.title': 'Política de Privacidad | Comercial Amerika SpA',
@@ -419,16 +406,13 @@
       // ---------- Home ----------
       'hero.label': 'Chile · Peru · Argentina',
       'hero.title': 'We bring great brands to the tables of Chile and the Andean Region',
-      'hero.subtitle': 'We import, market and distribute food and beverages in supermarkets, convenience stores, traditional trade and HORECA.',
+      'hero.subtitle': 'Food and beverages imported and distributed across Chile and the Andean Region.',
       'hero.cta1': 'See our brands',
       'hero.cta2': 'Distribute with us',
       'hero.image': '[SHORT VIDEO OR CAROUSEL: shelf with products · Colina warehouse · DrinkBall toast]',
-      'hero.rot1': 'International brands with factory backing: Comary · Vieira · My Foods',
-      'hero.rot2': 'Real coverage: supermarkets, convenience, traditional trade and HORECA',
-      'hero.rot3': 'Direct importing, health registrations and distribution in Chile and the Andean Region',
-      'hero.rot1': 'Marcas internacionales con respaldo de fábrica: Comary · Vieira · My Foods',
-      'hero.rot2': 'Cobertura real: supermercados, conveniencia, canal tradicional y HORECA',
-      'hero.rot3': 'Importación directa, registros sanitarios y distribución en Chile y la Región Andina',
+      'hero.rot1': 'Real coverage: supermarkets, convenience, traditional trade and HORECA',
+      'impact.title': 'Brands that sell themselves',
+      'impact.cta': 'See the portfolio',
       'paths.brand.title': 'I am a brand or manufacturer',
       'paths.brand.text': 'I am looking for a distributor in Chile, Peru or Argentina for my food or beverage brand.',
       'paths.brand.cta': 'See how we work',
@@ -686,19 +670,6 @@
       'pm.cta2.title': 'Want to sell Pink Moon in your business?',
 
       // ---------- Commercial sheet (common to both brands) ----------
-      'sheet.title': 'Commercial sheet for customers',
-      'sheet.note': 'Data to request from Comary together with the technical sheets (section 5.5 of the document).',
-      'sheet.note.pm': 'Flavors and formats to be confirmed with Comary.',
-      'sheet.data': 'Commercial data',
-      'sheet.value': 'Value',
-      'sheet.format': 'Format per unit',
-      'sheet.units': 'Units per case',
-      'sheet.ean': 'Barcode (EAN)',
-      'sheet.alcohol': 'Alcohol content',
-      'sheet.shelf': 'Shelf life',
-      'sheet.channels': 'Available channels',
-      'sheet.tbc': '[to be confirmed with Comary]',
-      'sheet.channels.val': 'Supermarkets · Convenience · Traditional trade · HORECA',
 
       // ---------- Privacy policy (EN) ----------
       'page.privacy.title': 'Privacy Policy | Comercial Amerika SpA',
@@ -748,7 +719,6 @@
       'cookies.text': 'We use measurement cookies (Google Analytics) to understand how the site is used and improve it. You can accept or reject; details in the <a href="privacidad.html">privacy policy</a>.',
       'cookies.accept': 'Accept',
       'cookies.reject': 'Reject',
-      'sheet.note.pm': 'Flavors and formats to be confirmed with Comary.'
     }
   };
 
@@ -1188,9 +1158,37 @@
     });
   }
 
+  /* REVEAL AL HACER SCROLL (todas las páginas):
+     los bloques "suben" suavemente al entrar en pantalla.
+     Aplica las clases automáticamente, sin tocar el HTML. */
+  function initScrollReveal() {
+    // Accesibilidad: quien pide menos movimiento, ve todo estático
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const objetivos = document.querySelectorAll(
+      '.section > .container, .page-hero > .container, .cta-banner-inner, .impact-banner-inner'
+    );
+
+    objetivos.forEach(function (bloque) {
+      bloque.classList.add('reveal');
+    });
+
+    const observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('reveal-in');
+          observador.unobserve(entrada.target); // solo una vez por bloque
+        }
+      });
+    }, { threshold: 0.12 });   /* se activa cuando ~12% del bloque se ve */
+
+    objetivos.forEach(function (bloque) {
+      observador.observe(bloque);
+    });
+  }
+
   /* ------------------------------------------
-     MENSAJES ROTATIVOS DEL HERO (index.html)
-     Cambia una frase cada 4 segundos con un fundido.
+     MENSAJES ROTATIVOS DEL HERO (index.html)     Cambia una frase cada 4 segundos con un fundido.
      Usa el diccionario actual, así que respeta ES/EN.
      ------------------------------------------ */
   function initHeroRotator() {
@@ -1280,6 +1278,7 @@
     initAlliesScrollDirection();
     initHeroRotator();
     initCookieBanner();
+    initScrollReveal();
     initAgeGate();
     setLanguage(readStoredLanguage());
     initFormAlert();
