@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,23 +16,24 @@
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
   <header class="header">
     <div class="container header-inner">
       <!-- Logo protagonista al centro; los menús se reparten a los lados -->
       <nav class="nav nav-side-left" aria-label="Menú principal izquierda">
-          <a href="index.html" data-i18n="nav.home">Inicio</a>
-          <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
-        </nav>
+        <a href="index.html" data-i18n="nav.home">Inicio</a>
+        <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
+      </nav>
 
       <a href="index.html" class="logo">
         <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" onerror="this.style.display='none'">
       </a>
 
       <nav class="nav nav-side-right" aria-label="Menú principal derecha">
-          <a href="nosotros.html" class="active" data-i18n="nav.about">Quiénes somos</a>
-          <a href="route-market.html" data-i18n="nav.route">Route to market</a>
+        <a href="nosotros.html" class="active" data-i18n="nav.about">Quiénes somos</a>
+        <a href="route-market.html" data-i18n="nav.route">Route to market</a>
 
         <div class="lang-switch">
           <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
@@ -188,17 +190,15 @@
           </p>
           <div class="features-grid" style="margin-top: 0;">
             <div class="feature-item" style="padding: 1rem 0;">
-              <div class="brand-logo" style="height: 80px; margin-bottom: 0.5rem;">
-                <img src="img/comary-logo.webp" alt="Logo de Comary" style="object-fit: contain;"
+              <div class="brand-logo-full">
+                <img src="img/comary-logo.webp" alt="Logo de Comary"
                   onerror="this.outerHTML='<span>[LOGO COMARY]</span>'">
               </div>
               <h4 style="font-size: 0.95rem;" data-i18n="about.ally.comary">Comary · Brasil, desde 1952</h4>
             </div>
             <div class="feature-item" style="padding: 1rem 0;">
-              <div class="brand-logo" style="height: 80px; margin-bottom: 0.5rem;">
-                <!-- Logo de Vieira: object-fit contain para que el wordmark completo
-                     se vea dentro de la caja, sin recortes ni deformaciones -->
-                <img src="img/Vieira_Logo.svg.webp" alt="Logo de Vieira" style="object-fit: contain;"
+              <div class="brand-logo-full">
+                <img src="img/Vieira_Logo.svg.webp" alt="Logo de Vieira"
                   onerror="this.outerHTML='<span>[LOGO VIEIRA]</span>'">
               </div>
               <h4 style="font-size: 0.95rem;" data-i18n="about.ally.vieira">Vieira · Portugal</h4>
@@ -209,7 +209,8 @@
         <!-- Botón que abre el modal del equipo -->
         <div class="mv-box"
           style="background: white; border: 1px solid var(--color-cream-dark); display: flex; flex-direction: column; justify-content: center;">
-          <h3 style="color: var(--color-navy); margin-bottom: 0.5rem;" data-i18n="about.team.title">Equipo directivo</h3>
+          <h3 style="color: var(--color-navy); margin-bottom: 0.5rem;" data-i18n="about.team.title">Equipo directivo
+          </h3>
           <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;" data-i18n="about.team.text">
             Personas con trayectoria comprobable en áreas comerciales de multinacionales de consumo masivo.
           </p>
@@ -225,10 +226,10 @@
   <!-- ========== MODAL DEL EQUIPO ========== -->
   <div id="teamModal" class="custom-modal">
     <div class="custom-modal-content">
-      <span class="custom-modal-close" id="btnCloseTeam" role="button" tabindex="0"
-        data-i18n-aria-label="common.close" aria-label="Cerrar">&times;</span>
-      <h2 style="text-align: center; margin-bottom: 2rem; color: var(--color-navy);"
-        data-i18n="about.team.modal.title">Equipo directivo</h2>
+      <span class="custom-modal-close" id="btnCloseTeam" role="button" tabindex="0" data-i18n-aria-label="common.close"
+        aria-label="Cerrar">&times;</span>
+      <h2 style="text-align: center; margin-bottom: 2rem; color: var(--color-navy);" data-i18n="about.team.modal.title">
+        Equipo directivo</h2>
 
       <div class="organigrama-container">
 
@@ -281,7 +282,8 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
-        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo" onerror="this.style.display='none'">
+        <img src="img/logo.png" alt="Logo de Comercial Amerika SpA" class="footer-logo"
+          onerror="this.style.display='none'">
         <div class="footer-links">
           <a href="index.html" data-i18n="nav.home">Inicio</a>
           <a href="marcas.html" data-i18n="nav.brands">Nuestras marcas</a>
@@ -315,7 +317,9 @@
   <!-- Aviso de cookies (Leyes 19.628 / 21.719): la lógica vive en js/main.js -->
   <div class="cookie-banner" id="cookieBanner" hidden>
     <div class="cookie-inner">
-      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.</p>
+      <p data-i18n="cookies.text">Usamos cookies de medición (Google Analytics) para entender cómo se usa el sitio y
+        mejorarlo. Puedes aceptar o rechazar; más detalles en la <a href="privacidad.html">política de privacidad</a>.
+      </p>
       <div class="cookie-actions">
         <button type="button" class="btn-accept" id="cookieAccept" data-i18n="cookies.accept">Aceptar</button>
         <button type="button" id="cookieReject" data-i18n="cookies.reject">Rechazar</button>
@@ -325,4 +329,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
