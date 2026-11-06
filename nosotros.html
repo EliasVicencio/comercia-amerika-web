@@ -20,6 +20,7 @@
 
 <body>
 
+  <!-- ========== HEADER (idéntico al de todas las páginas) ========== -->
   <header class="header">
     <div class="container header-inner">
       <!-- Logo protagonista al centro; los menús se reparten a los lados -->
@@ -51,235 +52,246 @@
     </div>
   </header>
 
-  <!-- ========== HISTORIA Y PROPÓSITO ========== -->
-  <section class="page-hero">
-    <div class="container">
-      <p class="section-label" data-i18n="about.label">Quiénes somos</p>
-      <h1 data-i18n="about.h1">Somos el puente entre marcas con potencial y los consumidores de la Región Andina</h1>
-    </div>
-  </section>
+  <main>
 
-  <section class="section" style="padding-top: 0;">
-    <div class="container hero-grid">
-      <div class="hero-image">
-        <span data-i18n="about.image">[FOTO / VIDEO CORPORATIVO]</span>
+    <!-- ========== INTRO: HISTORIA Y PROPÓSITO ========== -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <div class="container">
+        <div class="ns-intro">
+          <span class="section-label" data-i18n="about.label">Quiénes somos</span>
+          <h1 data-i18n="about.h1">Somos el puente entre marcas con potencial y los consumidores de la Región Andina</h1>
+          <p><strong>Comercial Amerika SpA</strong> es una empresa chilena que importa, comercializa y distribuye
+            alimentos y bebidas. Llevamos marcas con potencial de crecimiento a los consumidores de Chile y la Región
+            Andina.</p>
+          <p data-i18n="about.history.p2">
+            Nacimos de más de 30 años de experiencia liderando equipos y proyectos comerciales en multinacionales
+            de consumo masivo, en Chile y en el extranjero. Esa trayectoria nos permite conocer a fondo cómo funcionan
+            las cadenas de supermercados, las tiendas de conveniencia y el canal tradicional, y qué necesita una marca
+            para entrar, posicionarse y crecer en cada uno.
+          </p>
+        </div>
       </div>
-      <div>
-        <h2 data-i18n="about.history.title">Nuestra historia</h2>
-        <p style="margin-top: 1rem; color: var(--color-text-muted);" data-i18n="about.history.p1">
-          <strong>Comercial Amerika SpA</strong> es una empresa chilena que importa, comercializa y distribuye
-          alimentos y bebidas. Llevamos marcas con potencial de crecimiento a los consumidores de Chile y la Región
-          Andina.
+    </section>
+
+    <!-- ========== A QUÉ NOS DEDICAMOS (STEPPER INTERACTIVO) ========== -->
+    <section class="section" style="background: var(--color-cream-dark);">
+      <div class="container">
+        <h2 data-i18n="about.dedicated.title">A qué nos dedicamos</h2>
+        <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-top: 0.4rem;">
+          Haz clic en cada etapa para conocer cómo gestionamos la cadena comercial:
         </p>
-        <p style="margin-top: 1rem; color: var(--color-text-muted);" data-i18n="about.history.p2">
-          Nacimos de más de 30 años de experiencia liderando equipos y proyectos comerciales en multinacionales
-          de consumo masivo, en Chile y en el extranjero. Esa trayectoria nos permite conocer a fondo cómo funcionan
-          las cadenas de supermercados, las tiendas de conveniencia y el canal tradicional, y qué necesita una marca
-          para entrar, posicionarse y crecer en cada uno.
-        </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ========== A QUÉ NOS DEDICAMOS ========== -->
-  <section class="section" style="background: var(--color-cream-dark);">
-    <div class="container">
-      <h2 data-i18n="about.dedicated.title">A qué nos dedicamos</h2>
+        <div class="ns-stepper">
 
-      <div class="features-grid">
-        <div class="feature-item">
-          <h4 data-i18n="about.ded1.title">Importación</h4>
-          <p data-i18n="about.ded1.text">Trabajamos directo con fabricantes internacionales, como Comary (Brasil, desde
-            1952) y Vieira (Portugal), y gestionamos comercio exterior y aduanas.</p>
-        </div>
-        <div class="feature-item">
-          <h4 data-i18n="about.ded2.title">Registros y cumplimiento</h4>
-          <p data-i18n="about.ded2.text">Tramitamos registros ante SAG, SEREMI de Salud, Aduanas y la autoridad
-            municipal. Adecuamos etiquetado y sellos desde el origen.</p>
-        </div>
-        <div class="feature-item">
-          <h4 data-i18n="about.ded3.title">Estrategia comercial</h4>
-          <p data-i18n="about.ded3.text">Definimos posicionamiento, precios por canal, surtido y planes promocionales de
-            cada marca.</p>
-        </div>
-        <div class="feature-item">
-          <h4 data-i18n="about.ded4.title">Distribución</h4>
-          <p data-i18n="about.ded4.text">Llegamos a supermercados, conveniencia, canal tradicional, mayoristas, HORECA y
-            tiendas especializadas, desde nuestra bodega en Colina.</p>
-        </div>
-        <div class="feature-item">
-          <h4 data-i18n="about.ded5.title">Ejecución en el punto de venta</h4>
-          <p data-i18n="about.ded5.text">Lanzamientos, degustaciones, activaciones y trade marketing para que el
-            producto rote.</p>
-        </div>
-      </div>
+          <!-- Pasos interactivos (desktop) -->
+          <div class="ns-steps-wrap">
+            <div class="ns-steps-rail"></div>
+            <div class="ns-progress" id="nsProgress"></div>
 
-      <!-- Misión / Visión: se corrigió el orden (la misión es lo que hacen hoy,
-           la visión es a dónde aspiran). Ver nota del documento 4.3. -->
-      <div class="mv-grid">
-        <div class="mv-box">
-          <h3 data-i18n="about.mission">Misión</h3>
-          <p style="color: var(--color-text-muted);" data-i18n="about.mission.text">
-            Brindamos soluciones comerciales de alto valor, por medio de un servicio excepcional y una gestión
-            eficiente de ventas, conectando productos de calidad con las necesidades de nuestros clientes y
-            consumidores, para garantizar su satisfacción.
-          </p>
-        </div>
-        <div class="mv-box">
-          <h3 data-i18n="about.vision">Visión</h3>
-          <p style="color: var(--color-text-muted);" data-i18n="about.vision.text">
-            Ser referente en excelencia comercial, tanto en el mercado nacional como internacional, reconocidos por
-            nuestra capacidad en el desarrollo y posicionamiento de marcas, la innovación en ventas y la
-            fidelización de nuestros clientes y consumidores.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== POR QUÉ AMERIKA ========== -->
-  <section class="section">
-    <div class="container">
-      <div class="hero-grid" style="align-items: start;">
-        <div>
-          <h2 data-i18n="about.why.title">Por qué Amerika</h2>
-          <p style="margin-top: 1rem; color: var(--color-text-muted);" data-i18n="about.why.text">
-            Nuestra diferencia no está en <em>qué</em> vender, sino en el <em>cómo</em> vender.
-            Combinamos inteligencia de mercado, rapidez para detectar tendencias y una relación de asesoría,
-            no solo de venta, con las marcas y los clientes con los que trabajamos.
-          </p>
-        </div>
-
-        <div>
-          <div class="cards-grid" style="margin-top: 0;">
-            <div class="card" style="padding: 1.25rem;">
-              <h3 style="font-size: 1rem;" data-i18n="about.why1">Inteligencia de mercado</h3>
-            </div>
-            <div class="card" style="padding: 1.25rem;">
-              <h3 style="font-size: 1rem;" data-i18n="about.why2">Velocidad (time to market)</h3>
-            </div>
-            <div class="card" style="padding: 1.25rem;">
-              <h3 style="font-size: 1rem;" data-i18n="about.why3">Asesoría, no solo venta</h3>
-            </div>
-            <div class="card" style="padding: 1.25rem;">
-              <h3 style="font-size: 1rem;" data-i18n="about.why4">Relaciones de largo plazo</h3>
+            <div class="ns-steps">
+              <button type="button" class="ns-step is-active" data-step="1">
+                <div class="ns-circle">01</div>
+                <span class="ns-label">Importación</span>
+              </button>
+              <button type="button" class="ns-step" data-step="2">
+                <div class="ns-circle">02</div>
+                <span class="ns-label">Cumplimiento</span>
+              </button>
+              <button type="button" class="ns-step" data-step="3">
+                <div class="ns-circle">03</div>
+                <span class="ns-label">Estrategia</span>
+              </button>
+              <button type="button" class="ns-step" data-step="4">
+                <div class="ns-circle">04</div>
+                <span class="ns-label">Distribución</span>
+              </button>
+              <button type="button" class="ns-step" data-step="5">
+                <div class="ns-circle">05</div>
+                <span class="ns-label">Punto de Venta</span>
+              </button>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ========== RESULTADOS ========== -->
-  <div class="stats-band">
-    <div class="container stats-band-grid">
-      <div><strong>+28%</strong><span data-i18n="about.r1.lbl">crecimiento en líneas core vs. año anterior</span></div>
-      <div><strong>12</strong><span data-i18n="about.r2.lbl">SKU incorporados en grandes cadenas</span></div>
-      <div><strong>7</strong><span data-i18n="about.r3.lbl">SKU nuevos desarrollados</span></div>
-    </div>
-  </div>
+          <!-- Píldoras (móvil y tablet) -->
+          <div class="ns-pills">
+            <button type="button" class="ns-pill is-active" data-step="1">1. Importación</button>
+            <button type="button" class="ns-pill" data-step="2">2. Cumplimiento</button>
+            <button type="button" class="ns-pill" data-step="3">3. Estrategia</button>
+            <button type="button" class="ns-pill" data-step="4">4. Distribución</button>
+            <button type="button" class="ns-pill" data-step="5">5. Punto de Venta</button>
+          </div>
 
-  <!-- ========== ALIADOS Y EQUIPO ========== -->
-  <section class="section">
-    <div class="container">
-      <div class="mv-grid">
-        <!-- Aliados: fabricantes representados, con su autorización -->
-        <div class="mv-box">
-          <h3 data-i18n="about.ally.title">Aliados</h3>
-          <p style="color: var(--color-text-muted); margin-bottom: 1.25rem;" data-i18n="about.ally.intro">
-            Fabricantes internacionales representados con exclusividad para Chile (logos con autorización escrita).
-          </p>
-          <div class="features-grid" style="margin-top: 0;">
-            <div class="feature-item" style="padding: 1rem 0;">
-              <div class="brand-logo-full">
-                <img src="img/comary-logo.webp" alt="Logo de Comary"
-                  onerror="this.outerHTML='<span>[LOGO COMARY]</span>'">
+          <!-- Tarjeta de contenido -->
+          <div class="ns-card" id="nsCard">
+            <span class="ns-watermark" id="nsWatermark">01</span>
+
+            <div class="ns-card-grid">
+              <div>
+                <span class="ns-badge" id="nsBadge">ETAPA 01 DE 05</span>
+                <h3 id="nsTitle">Importación</h3>
+                <p id="nsDesc">
+                  Trabajamos directo con fabricantes internacionales, como Comary (Brasil, desde 1952) y
+                  Vieira (Portugal), y gestionamos comercio exterior y aduanas.
+                </p>
               </div>
-              <h4 style="font-size: 0.95rem;" data-i18n="about.ally.comary">Comary · Brasil, desde 1952</h4>
-            </div>
-            <div class="feature-item" style="padding: 1rem 0;">
-              <div class="brand-logo-full">
-                <img src="img/Vieira_Logo.svg.webp" alt="Logo de Vieira"
-                  onerror="this.outerHTML='<span>[LOGO VIEIRA]</span>'">
+
+              <div class="ns-tag">
+                <div class="ns-tag-head">
+                  <div class="ns-icon" id="nsIcon">
+                    <!-- ícono de la etapa 1 (el JS lo cambia) -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21 8V21H3V8M1 3h22v5H1zM10 12h4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="ns-tag-title" id="nsTagTitle">Enfoque Operativo</h4>
+                    <p class="ns-tag-desc" id="nsTagDesc">Trato directo con origen &amp; aduanas</p>
+                  </div>
+                </div>
+
+                <div class="nav-dots">
+                  <button type="button" id="nsPrev" disabled>Anterior</button>
+                  <button type="button" id="nsNext">Siguiente etapa →</button>
+                </div>
               </div>
-              <h4 style="font-size: 0.95rem;" data-i18n="about.ally.vieira">Vieira · Portugal</h4>
             </div>
           </div>
         </div>
 
-        <!-- Botón que abre el modal del equipo -->
-        <div class="mv-box"
-          style="background: white; border: 1px solid var(--color-cream-dark); display: flex; flex-direction: column; justify-content: center;">
-          <h3 style="color: var(--color-navy); margin-bottom: 0.5rem;" data-i18n="about.team.title">Equipo directivo
-          </h3>
-          <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;" data-i18n="about.team.text">
-            Personas con trayectoria comprobable en áreas comerciales de multinacionales de consumo masivo.
-          </p>
-          <button type="button" id="btnOpenTeam" class="btn btn-dark" style="align-self: flex-start; cursor: pointer;"
-            data-i18n="about.team.cta">
-            Conocer al equipo
-          </button>
+        <!-- Misión / Visión: se corrigió el orden (la misión es lo que hacen hoy,
+             la visión es a dónde aspiran). Ver nota del documento 4.3. -->
+        <div class="mv-grid">
+          <div class="mv-box">
+            <span class="ns-eyebrow green" data-i18n="about.mission.eyebrow">Propósito</span>
+            <h3 data-i18n="about.mission">Misión</h3>
+            <p style="color: var(--color-text-muted);" data-i18n="about.mission.text">
+              Brindamos soluciones comerciales de alto valor, por medio de un servicio excepcional y una gestión
+              eficiente de ventas, conectando productos de calidad con las necesidades de nuestros clientes y
+              consumidores, para garantizar su satisfacción.
+            </p>
+          </div>
+          <div class="mv-box">
+            <span class="ns-eyebrow blue" data-i18n="about.vision.eyebrow">Aspiración</span>
+            <h3 data-i18n="about.vision">Visión</h3>
+            <p style="color: var(--color-text-muted);" data-i18n="about.vision.text">
+              Ser referente en excelencia comercial, tanto en el mercado nacional como internacional, reconocidos por
+              nuestra capacidad en el desarrollo y posicionamiento de marcas, la innovación en ventas y la
+              fidelización de nuestros clientes y consumidores.
+            </p>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- ========== CIFRAS Y RESULTADOS ========== -->
+    <div class="stats-band">
+      <div class="container stats-band-grid">
+        <div><strong>+28%</strong><span data-i18n="about.r1.lbl">crecimiento en líneas core vs. año anterior</span></div>
+        <div><strong>12</strong><span data-i18n="about.r2.lbl">SKU incorporados en grandes cadenas</span></div>
+        <div><strong>7</strong><span data-i18n="about.r3.lbl">SKU nuevos desarrollados</span></div>
+      </div>
     </div>
-  </section>
 
-  <!-- ========== MODAL DEL EQUIPO ========== -->
-  <div id="teamModal" class="custom-modal">
-    <div class="custom-modal-content">
-      <span class="custom-modal-close" id="btnCloseTeam" role="button" tabindex="0" data-i18n-aria-label="common.close"
-        aria-label="Cerrar">&times;</span>
-      <h2 style="text-align: center; margin-bottom: 2rem; color: var(--color-navy);" data-i18n="about.team.modal.title">
-        Equipo directivo</h2>
-
-      <div class="organigrama-container">
-
-        <!-- Nivel 1: Gerente General -->
-        <div class="org-level">
-          <div class="org-card org-primary">
-            <img src="img/personas/IgnacioMorales.png" alt="Foto de Ignacio Morales" class="org-img">
-            <h4>Ignacio Morales G</h4>
-            <p data-i18n="role.ceo">Gerente General</p>
-          </div>
-        </div>
-
-        <div class="org-line-vertical"></div>
-
-        <!-- Nivel 2: Gerentes -->
-        <div class="org-level org-flex-row">
-          <div class="org-branch">
-            <div class="org-card">
-              <img src="img/personas/LilianGonzalez.png" alt="Foto de Lilian Gonzalez" class="org-img">
-              <h4>Lilian Gonzalez F</h4>
-              <p data-i18n="role.commercial">Gerente Comercial</p>
-            </div>
-            <div class="org-line-vertical-small"></div>
-
-            <div class="org-sub-level">
-              <div class="org-card org-small">
-                <img src="img/personas/DavidFuentes.png" alt="Foto de David Fuentes" class="org-img">
-                <h4>David Fuentes</h4>
-                <p data-i18n="role.community">Community Manager</p>
+    <!-- ========== ALIADOS Y EQUIPO ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="mv-grid">
+          <!-- Aliados: fabricantes representados, con su autorización -->
+          <div class="mv-box">
+            <h3 data-i18n="about.ally.title">Aliados</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 1.25rem;" data-i18n="about.ally.intro">
+              Fabricantes internacionales representados con exclusividad para Chile (logos con autorización escrita).
+            </p>
+            <div class="features-grid" style="margin-top: 0;">
+              <div class="feature-item" style="padding: 1rem 0;">
+                <div class="brand-logo-full">
+                  <img src="img/comary-logo.webp" alt="Logo de Comary"
+                    onerror="this.outerHTML='<span>[LOGO COMARY]</span>'">
+                </div>
+                <h4 style="font-size: 0.95rem;" data-i18n="about.ally.comary">Comary · Brasil, desde 1952</h4>
+              </div>
+              <div class="feature-item" style="padding: 1rem 0;">
+                <div class="brand-logo-full">
+                  <img src="img/Vieira_Logo.svg.webp" alt="Logo de Vieira"
+                    onerror="this.outerHTML='<span>[LOGO VIEIRA]</span>'">
+                </div>
+                <h4 style="font-size: 0.95rem;" data-i18n="about.ally.vieira">Vieira · Portugal</h4>
               </div>
             </div>
           </div>
 
-          <div class="org-branch">
-            <div class="org-card">
-              <img src="img/personas/AlejandroCabrera.png" alt="Foto de Alejandro Cabrera" class="org-img">
-              <h4>Alejandro Cabrera</h4>
-              <p data-i18n="role.supply">Jefe Supply</p>
+          <!-- Botón que abre el modal del equipo -->
+          <div class="mv-box"
+            style="background: white; border: 1px solid var(--color-cream-dark); display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="color: var(--color-navy); margin-bottom: 0.5rem;" data-i18n="about.team.title">Equipo directivo
+            </h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;" data-i18n="about.team.text">
+              Personas con trayectoria comprobable en áreas comerciales de multinacionales de consumo masivo.
+            </p>
+            <button type="button" id="btnOpenTeam" class="btn btn-dark" style="align-self: flex-start; cursor: pointer;"
+              data-i18n="about.team.cta">
+              Conocer al equipo
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MODAL DEL EQUIPO (misma funcionalidad de siempre) ========== -->
+    <div id="teamModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="custom-modal-close" id="btnCloseTeam" role="button" tabindex="0" data-i18n-aria-label="common.close"
+          aria-label="Cerrar">&times;</span>
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--color-navy);" data-i18n="about.team.modal.title">
+          Equipo directivo</h2>
+
+        <div class="organigrama-container">
+
+          <!-- Nivel 1: Gerente General -->
+          <div class="org-level">
+            <div class="org-card org-primary">
+              <img src="img/personas/IgnacioMorales.png" alt="Foto de Ignacio Morales" class="org-img">
+              <h4>Ignacio Morales G</h4>
+              <p data-i18n="role.ceo">Gerente General</p>
+            </div>
+          </div>
+
+          <div class="org-line-vertical"></div>
+
+          <!-- Nivel 2: Gerentes -->
+          <div class="org-level org-flex-row">
+            <div class="org-branch">
+              <div class="org-card">
+                <img src="img/personas/LilianGonzalez.png" alt="Foto de Lilian Gonzalez" class="org-img">
+                <h4>Lilian Gonzalez F</h4>
+                <p data-i18n="role.commercial">Gerente Comercial</p>
+              </div>
+              <div class="org-line-vertical-small"></div>
+
+              <div class="org-sub-level">
+                <div class="org-card org-small">
+                  <img src="img/personas/DavidFuentes.png" alt="Foto de David Fuentes" class="org-img">
+                  <h4>David Fuentes</h4>
+                  <p data-i18n="role.community">Community Manager</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="org-branch">
+              <div class="org-card">
+                <img src="img/personas/AlejandroCabrera.png" alt="Foto de Alejandro Cabrera" class="org-img">
+                <h4>Alejandro Cabrera</h4>
+                <p data-i18n="role.supply">Jefe Supply</p>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- Nota del documento (1.2): "Jefe de ventas" con foto genérica se pudo
-             quitar. Si se contrata a una persona real con nombre y foto, volver a
-             agregarla aquí copiando la tarjeta de David Fuentes. -->
       </div>
     </div>
-  </div>
 
+  </main>
+
+  <!-- ========== FOOTER (idéntico al de todas las páginas) ========== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
@@ -329,6 +341,124 @@
   </div>
 
   <script src="js/main.js"></script>
+
+  <!-- ========== LÓGICA DEL COMPONENTE DINÁMICO ========== -->
+  <script>
+    (function () {
+      // Íconos SVG de cada etapa (sin librerías externas, trazo al estilo Lucide)
+      var ICONS = {
+        ship:
+          '<path d="M2 21a8.5 8.5 0 0 0 4.5-.5"/><path d="M21.5 20.5a8.5 8.5 0 0 1-4.5-.5"/><path d="M12 2v8"/><path d="M6 12a6 6 0 0 0 12 0"/><path d="M4 19c1.5 1 3 .5 4.5 0s3-1 4.5-1 3 .5 4.5 1 3 1 4.5 0"/>',
+        filecheck:
+          '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M9 15l2 2 4-4"/>',
+        trending:
+          '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+        truck:
+          '<path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="19.5" r="2"/><circle cx="18.5" cy="19.5" r="2"/>',
+        bag:
+          '<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>'
+      };
+
+      // Datos de las 5 etapas (mismos textos de la versión anterior)
+      var dataSteps = {
+        1: {
+          title: "Importación",
+          desc: "Trabajamos directo con fabricantes internacionales, como Comary (Brasil, desde 1952) y Vieira (Portugal), y gestionamos comercio exterior y aduanas.",
+          icon: "ship",
+          tagTitle: "Comercio Exterior",
+          tagDesc: "Trato directo con orígenes en Brasil y Portugal."
+        },
+        2: {
+          title: "Registros y cumplimiento",
+          desc: "Tramitamos registros ante SAG, SEREMI de Salud, Aduanas y la autoridad municipal. Adecuamos etiquetado y sellos desde el origen.",
+          icon: "filecheck",
+          tagTitle: "Regulación Local",
+          tagDesc: "Cumplimiento normativo y rotulado desde origen."
+        },
+        3: {
+          title: "Estrategia comercial",
+          desc: "Definimos posicionamiento, precios por canal, surtido y planes promocionales de cada marca.",
+          icon: "trending",
+          tagTitle: "Estrategia B2B",
+          tagDesc: "Precios por canal y arquitectura de marca."
+        },
+        4: {
+          title: "Distribución",
+          desc: "Llegamos a supermercados, conveniencia, canal tradicional, mayoristas, HORECA y tiendas especializadas, desde nuestra bodega en Colina.",
+          icon: "truck",
+          tagTitle: "Logística Central",
+          tagDesc: "Despacho directo desde bodega en Colina."
+        },
+        5: {
+          title: "Ejecución en el punto de venta",
+          desc: "Lanzamientos, degustaciones, activaciones y trade marketing para que el producto rote.",
+          icon: "bag",
+          tagTitle: "Trade Marketing",
+          tagDesc: "Rotación activa del producto en góndola."
+        }
+      };
+
+      var PCT = { 1: "20%", 2: "40%", 3: "60%", 4: "80%", 5: "100%" };
+
+      var stepBtns = document.querySelectorAll(".ns-step");
+      var pills = document.querySelectorAll(".ns-pill");
+      var progress = document.getElementById("nsProgress");
+      var watermark = document.getElementById("nsWatermark");
+      var badge = document.getElementById("nsBadge");
+      var titleEl = document.getElementById("nsTitle");
+      var descEl = document.getElementById("nsDesc");
+      var iconEl = document.getElementById("nsIcon");
+      var tagTitle = document.getElementById("nsTagTitle");
+      var tagDesc = document.getElementById("nsTagDesc");
+      var prevBtn = document.getElementById("nsPrev");
+      var nextBtn = document.getElementById("nsNext");
+
+      function updateUI(step) {
+        var current = parseInt(step, 10);
+        var data = dataSteps[current];
+
+        // 1) Progreso de la línea verde
+        progress.style.width = PCT[current];
+
+        // 2) Timeline desktop: activo / pasadas / futuras
+        stepBtns.forEach(function (b) {
+          var s = parseInt(b.getAttribute("data-step"), 10);
+          b.classList.toggle("is-active", s === current);
+          b.classList.toggle("is-past", s < current);
+        });
+
+        // 3) Píldoras móviles
+        pills.forEach(function (p) {
+          p.classList.toggle("is-active", parseInt(p.getAttribute("data-step"), 10) === current);
+        });
+
+        // 4) Contenido de la tarjeta
+        watermark.textContent = current < 10 ? "0" + current : current;
+        badge.textContent = "ETAPA 0" + current + " DE 05";
+        titleEl.textContent = data.title;
+        descEl.textContent = data.desc;
+        tagTitle.textContent = data.tagTitle;
+        tagDesc.textContent = data.tagDesc;
+        iconEl.innerHTML =
+          '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' + ICONS[data.icon] + "</svg>";
+
+        // 5) Botones
+        prevBtn.disabled = current === 1;
+        nextBtn.textContent = current === 5 ? "Volver al inicio" : "Siguiente etapa →";
+      }
+
+      stepBtns.forEach(function (b) { b.addEventListener("click", function () { updateUI(b.getAttribute("data-step")); }); });
+      pills.forEach(function (p) { p.addEventListener("click", function () { updateUI(p.getAttribute("data-step")); }); });
+      prevBtn.addEventListener("click", function () {
+        var c = parseInt(watermark.textContent, 10);
+        if (c > 1) updateUI(c - 1);
+      });
+      nextBtn.addEventListener("click", function () {
+        var c = parseInt(watermark.textContent, 10);
+        updateUI(c < 5 ? c + 1 : 1);
+      });
+    })();
+  </script>
 </body>
 
 </html>
