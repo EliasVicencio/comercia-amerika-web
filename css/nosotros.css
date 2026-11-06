@@ -1,0 +1,392 @@
+/* ============================================
+   AMERIKA - Estilos de la página NOSOTROS
+   (nosotros.html)
+   ============================================ */
+
+/* ---------- Page Hero ---------- */
+.page-hero {
+  padding: 3.5rem 0 2rem;
+}
+
+.page-hero h1 {
+  margin-bottom: 1rem;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 560px;
+}
+
+/* Versión posterior (bloque "Optimización") */
+.page-hero {
+  padding: 4rem 0 2rem;
+  text-align: left;
+}
+
+/* ---------- Hero (imagen + contenido) ---------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Caja de imagen destacada: mecanismo "cover" */
+.hero-image {
+  background: var(--color-cream-dark);
+  border-radius: var(--radius);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Versión posterior (bloque "Optimización") */
+.hero-image {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Cards ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Versión posterior (bloque "Optimización") */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  transition: transform var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- Features / Modelo de negocio ---------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.feature-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-navy);
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Mission / Vision boxes ---------- */
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.mv-box {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.mv-box h3 {
+  margin-bottom: 0.75rem;
+  color: var(--color-orange);
+}
+
+/* ---------- CIFRAS DE ESCALA (como ICB) ----------
+   Bandera azul marino con números grandes en verde. */
+.stats-band {
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 2.5rem 0;
+}
+.stats-band-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+.stats-band strong {
+  display: block;              /* fuerza que el número quede en su propia línea */
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--color-green);
+  margin-bottom: 0.25rem;
+}
+.stats-band span {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ---------- Marca: imagen a todo el ancho de la tarjeta ---------- */
+.brand-logo-full {
+  width: 100%;
+  height: 110px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.brand-logo-full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center;
+}
+
+/* =========================================
+   MODAL DEL EQUIPO
+   ========================================= */
+
+.custom-modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  backdrop-filter: blur(4px); /* Efecto borroso de fondo */
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Cuando tiene la clase .show, se muestra */
+.custom-modal.show {
+  display: flex;
+}
+
+.custom-modal-content {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 1000px; /* Ancho máximo del modal */
+  max-height: 90vh; /* No más alto que la pantalla */
+  overflow-y: auto; /* Scroll si hay muchos elementos */
+  position: relative;
+  animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.custom-modal-close:hover {
+  color: #d9534f; /* Rojo al pasar el mouse */
+}
+
+/* --- Estilos del Organigrama --- */
+.organigrama-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.org-level {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.org-flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.org-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.org-sub-level {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Tarjetas de personas */
+.org-card {
+  background: #fff;
+  border: 1px solid var(--color-cream-dark, #e0e0e0);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  min-width: 200px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.org-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.org-primary {
+  border-top: 4px solid var(--color-navy, #0d1b2a);
+  min-width: 250px;
+}
+
+.org-small {
+  padding: 1rem;
+  min-width: 160px;
+}
+
+.org-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid var(--color-cream, #f4f1ea);
+}
+
+.org-small .org-img {
+  width: 70px;
+  height: 70px;
+}
+
+.org-card h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--color-navy, #0d1b2a);
+}
+
+.org-card p {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted, #666);
+}
+
+/* Líneas conectoras */
+.org-line-vertical {
+  width: 2px;
+  height: 40px;
+  background-color: #ccc;
+  margin: 0 auto;
+}
+
+.org-line-vertical-small {
+  width: 2px;
+  height: 30px;
+  background-color: #ccc;
+  margin: 1rem auto;
+}
+
+/* Responsive para el organigrama */
+@media (max-width: 768px) {
+  .org-flex-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .org-sub-level {
+    flex-direction: column;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero-grid,
+  .mv-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+}

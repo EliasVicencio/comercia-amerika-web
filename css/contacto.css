@@ -1,0 +1,290 @@
+/* ============================================
+   AMERIKA - Estilos de la página CONTACTO
+   (contacto.html)
+   Incluye el formulario, la caja de datos y el
+   MODAL DE CONSENTIMIENTO DE DATOS.
+   ============================================ */
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-item {
+  background: var(--color-white);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* Horario de atención, se ve debajo de los datos de contacto */
+.contact-item small {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.contact-form {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Formulario ---------- */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--color-navy);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--color-cream);
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-orange);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* El selector es igual de alto que los inputs en móvil */
+.form-group select {
+  min-height: 48px;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 1.25rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.form-check input {
+  margin-top: 0.2rem;
+}
+
+.form-check label a {
+  text-decoration: underline;
+  color: var(--color-navy);
+}
+
+/* Aviso de éxito/error del formulario */
+.form-alert {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  display: none;               /* el JS lo muestra según la URL */
+}
+.form-alert.success {
+  display: block;
+  background: #dcfce7;         /* verde muy claro */
+  color: var(--color-green-dark);
+}
+.form-alert.error {
+  display: block;
+  background: #fee2e2;         /* rojo muy claro */
+  color: #b91c1c;
+}
+
+/* ---------- Caja de imagen (segunda columna) ---------- */
+.hero-image {
+  background: var(--color-cream-dark);
+  border-radius: var(--radius);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Versión posterior de .hero-image (bloque "Optimización") */
+.hero-image {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   MODAL (reutilizado para equipo y consentimiento)
+   ========================================= */
+
+.custom-modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  backdrop-filter: blur(4px); /* Efecto borroso de fondo */
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Cuando tiene la clase .show, se muestra */
+.custom-modal.show {
+  display: flex;
+}
+
+.custom-modal-content {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 1000px; /* Ancho máximo del modal */
+  max-height: 90vh; /* No más alto que la pantalla */
+  overflow-y: auto; /* Scroll si hay muchos elementos */
+  position: relative;
+  animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.custom-modal-close:hover {
+  color: #d9534f; /* Rojo al pasar el mouse */
+}
+
+/* ============================================
+   MODAL DE CONSENTIMIENTO DE DATOS
+   Se muestra al clic en "Información básica sobre protección
+   de datos". Reutiliza las clases .custom-modal.
+   ============================================ */
+.consent-modal-content {
+  max-width: 640px;
+  max-height: 80vh;            /* si el texto no cabe, el modal hace scroll */
+  overflow-y: auto;
+  text-align: left;
+}
+.consent-list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+.consent-list strong {
+  color: var(--color-navy);
+}
+/* Botones de decisión del consentimiento dentro del modal */
+.consent-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+.consent-actions button {
+  border: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.btn-consent-accept {
+  background: var(--color-green);
+  color: #fff;
+}
+.btn-consent-accept:disabled {
+  background: var(--color-text-muted);
+  opacity: 0.6;
+  cursor: not-allowed;         /* sin consentimiento, no se puede avanzar */
+}
+.btn-consent-reject {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-text-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

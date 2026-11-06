@@ -1,0 +1,347 @@
+/* ============================================
+   AMERIKA - Estilos de la página DRINKBALL
+   (drinkball.html)
+   Incluye el MODAL DE CONTROL DE EDAD (+18),
+   compartido con pink-moon.html.
+   ============================================ */
+
+/* ---------- Page Hero ---------- */
+.page-hero {
+  padding: 3.5rem 0 2rem;
+}
+
+.page-hero h1 {
+  margin-bottom: 1rem;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 560px;
+}
+
+/* Versión posterior (bloque "Optimización") */
+.page-hero {
+  padding: 4rem 0 2rem;
+  text-align: left;
+}
+
+/* ---------- Hero: acciones + caja de imagen ---------- */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-image {
+  background: var(--color-cream-dark);
+  border-radius: var(--radius);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Variante para imágenes que NO deben recortarse (la paleta
+   de colores de DrinkBall): la caja se ajusta al alto natural
+   de la imagen, así no queda espacio de sobra arriba ni abajo. */
+.hero-image.hero-contain {
+  aspect-ratio: auto;
+}
+.hero-image.hero-contain img {
+  display: block;        /* quita el pequeño hueco que deja img como inline */
+  height: auto;          /* la caja toma el alto real de la imagen */
+  object-fit: contain;
+}
+
+/* Versión posterior de .hero-image (bloque "Optimización") */
+.hero-image {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FOTO dentro de un recuadro hero-image: llena TODO el espacio
+   disponible del recuadro (ocupa el contorno completo). */
+.hero-image img.fit-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Si la foto es vertical, el recuadro se alarga: la sección crece
+   (aceptado) y así la imagen casi no se recorta. */
+.card .hero-image:has(img.fit-contain) {
+  aspect-ratio: 3 / 4;
+}
+
+/* ---------- Cards ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Versión posterior (bloque "Optimización") */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  transition: transform var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- Brands ---------- */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+/* ---------- TARJETA DE PRODUCTO (portafolio) ---------- */
+.product-card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  padding: 1.5rem;
+  text-align: center;
+}
+.product-card .product-image {
+  height: 180px;              /* misma caja "cover" que .brand-logo */
+  background: var(--color-cream-dark);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+/* Igual que en las tarjetas de marca: la imagen llena su caja */
+.product-card .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Caso donde la clase .product-image está puesta DIRECTAMENTE en el <img>
+   (sin caja contenedora):
+   la imagen se centra y llena el ancho de la tarjeta. */
+.product-card img.product-image {
+  display: block;
+  width: 100%;
+  height: 180px;              /* misma altura de caja que las demás */
+  object-fit: cover;          /* llena la tarjeta sin deformarse */
+  border-radius: var(--radius-sm);
+  background: var(--color-cream-dark);
+}
+.product-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.product-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* FOTO usada como icono de tarjeta (ocasiones):
+   la imagen ocupa el ancho del lugar que tiene designado y la caja
+   se ajusta a su alto natural, así no se deforma ni se corta. */
+.card > img.card-icon {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Caja destacada ---------- */
+.highlight-box {
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  margin: 2rem 0;
+}
+
+.highlight-box p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* Versión posterior (bloque "Optimización") */
+.highlight-box {
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius);
+  margin-top: 2.5rem;
+  border-left: 5px solid var(--color-green);
+}
+
+.highlight-box p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* ---------- CTA Banner ---------- */
+.cta-banner {
+  background: var(--color-orange);
+  padding: 3rem 0;
+}
+
+.cta-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-banner h2 {
+  color: var(--color-navy);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  max-width: 520px;
+}
+
+/* El banner de "llamado final" ahora es verde, no amarillo */
+.cta-banner.green {
+  background: var(--color-green);
+}
+.cta-banner.green h2 {
+  color: var(--color-white);
+}
+
+/* Versión posterior (bloque "Optimización") */
+.cta-banner.green {
+  background: var(--color-green);
+  padding: 3.5rem 0;
+  color: white;
+}
+
+.cta-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-banner h2 {
+  color: white;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+}
+
+/*
+   AVISO +18 Y CONTROL DE EDAD
+   (a) Modal de control de edad en las páginas de bebidas con alcohol.
+   (b) Sello de advertencia reutilizable dentro de la página.
+*/
+.age-modal {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;                    /* atajo para: top/right/bottom/left = 0 */
+  background: rgba(15, 23, 42, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.age-modal.hidden {
+  display: none;               /* cuando el JS agrega .hidden, desaparece */
+}
+.age-modal-content {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+}
+.age-modal-content h2 {
+  color: var(--color-navy);
+  margin: 1rem 0 0.5rem;
+}
+.age-modal-content p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.age-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.age-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .cta-banner-inner { flex-direction: column; text-align: center; }
+}

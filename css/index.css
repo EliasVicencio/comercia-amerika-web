@@ -1,0 +1,488 @@
+/* ============================================
+   AMERIKA - Estilos de la página INICIO
+   (index.html)
+   ============================================ */
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 4rem 0 3rem;
+}
+
+/* Entrada suave del hero: el contenido "sube" al cargar la página */
+.hero-content > * {
+  animation: hero-in 0.6s ease both;
+}
+.hero-content > *:nth-child(2) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.2s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.3s; }
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-content > * {
+    animation: none;          /* sin animación para quien la pide */
+  }
+}
+
+/* Frase rotativa del hero (el JS cambia el texto cada 4 s) */
+.hero-rotator {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--color-green);
+  min-height: 1.6em;          /* reserva el alto para que nada salte */
+  transition: opacity 0.4s ease;
+}
+
+/*
+   BANNER DE IMPACTO: imagen full-width con UNA sola frase encima.
+   Usa la paleta de colores de DrinkBall como fondo visual.
+*/
+.impact-banner {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),  /* velo oscuro */
+    url('../img/drink-sabores.png') center / cover no-repeat;
+}
+.impact-banner-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+  text-align: center;
+  color: #fff;
+}
+.impact-banner h2 {
+  font-size: clamp(1.8rem, 5vw, 3rem);   /* crece con la pantalla */
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+/* Versión posterior (bloque "Optimización"), idéntica: se mantiene por orden */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-content .section-label {
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+  margin-bottom: 1.25rem;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Caja de imagen destacada: mismo mecanismo "cover" que las tarjetas
+   de marca. La imagen llena la caja y se recorta con las esquinas. */
+.hero-image {
+  background: var(--color-cream-dark);
+  border-radius: var(--radius);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Variante para imágenes que NO deben recortarse (por ejemplo, la paleta
+   de colores de DrinkBall en drinkball.html): la caja no fuerza una
+   proporción fija, se ajusta al alto natural de la imagen. */
+.hero-image.hero-contain {
+  aspect-ratio: auto;
+}
+.hero-image.hero-contain img {
+  display: block;        /* quita el pequeño hueco que deja img como inline */
+  height: auto;          /* la caja toma el alto real de la imagen */
+  object-fit: contain;
+}
+
+/* Versión posterior de .hero-image (bloque "Optimización") */
+.hero-image {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Tarjetas de características ---------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.feature-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-navy);
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Cards ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Versión posterior (bloque "Optimización") */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  transition: transform var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- CTA Banner ---------- */
+.cta-banner {
+  background: var(--color-orange);
+  padding: 3rem 0;
+}
+
+.cta-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-banner h2 {
+  color: var(--color-navy);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  max-width: 520px;
+}
+
+/* El banner de "llamado final" ahora es verde, no amarillo */
+.cta-banner.green {
+  background: var(--color-green);
+}
+.cta-banner.green h2 {
+  color: var(--color-white);
+}
+
+/* Versión posterior (bloque "Optimización") */
+.cta-banner.green {
+  background: var(--color-green);
+  padding: 3.5rem 0;
+  color: white;
+}
+
+.cta-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-banner h2 {
+  color: white;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+}
+
+/*
+   "DOS CAMINOS" DE LA PORTADA
+   Dos tarjetas grandes: una para marcas, otra para clientes.
+*/
+.paths-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.path-card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border-top: 4px solid var(--color-orange);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.path-card.green {
+  border-top-color: var(--color-green);
+}
+.path-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  flex-grow: 1;                /* empuja el botón al fondo de la tarjeta */
+}
+
+/* En pantallas pequeñas, las tarjetas se apilan una sobre otra */
+@media (max-width: 700px) {
+  .paths-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+   BANDA "TRABAJAMOS CON" (generada con JavaScript)
+   Una cinta de logos que desfila lentamente. El JS duplica la
+   lista para que el bucle sea continuo y sin saltos.
+   El MOVIMIENTO lo controla js/main.js (no animación CSS).
+*/
+.allies-band {
+  background: var(--color-navy);
+  padding: 2.25rem 0;
+  overflow: hidden;            /* corta la cinta en los bordes de pantalla */
+}
+.allies-title {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.allies-viewport {
+  /* degradado a los lados: la cinta "sale" de la pantalla con suavidad */
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.allies-track {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  width: max-content;          /* lo ancho justo para que quepa todo seguido */
+  will-change: transform;      /* avisa al navegador que esta caja se moverá */
+  /* Margen extra arriba y abajo: deja aire para que, cuando un logo
+     crece al pasar el mouse, el agrandado no quede cortado por la banda. */
+  padding: 1rem 0;
+}
+.allies-track img {
+  height: 52px;
+  width: auto;
+  flex-shrink: 0;              /* los logos nunca se aprietan entre sí */
+  transition: transform 0.25s ease;  /* el aumento de tamaño es suave */
+}
+
+/* Al pasar el mouse, el logo crece para verse mejor (sin mover la cinta) */
+.allies-track img:hover {
+  transform: scale(1.35);
+}
+
+/* ============================================
+   HERO ESTILO VITRINA
+   Usa las variables: --color-green, --color-orange,
+   --color-orange-hover, --color-navy.
+   ============================================ */
+
+.hero-showcase {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-green, #1e7b3c);
+  color: #fff;
+  text-align: center;
+  padding: clamp(2.5rem, 7vw, 5.5rem) 0 0;
+}
+
+/* Titular: línea chica + frase gigante */
+.hs-title { margin: 0 0 1rem; line-height: 1; }
+.hs-title span { display: block; }
+.hs-kicker {
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+  font-weight: 400;
+  margin-bottom: .6rem;
+}
+.hs-headline {
+  font-size: clamp(2.6rem, 9vw, 6.4rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.hs-sub {
+  max-width: 560px;
+  margin: 0 auto 1.75rem;
+  font-size: clamp(.95rem, 1.6vw, 1.1rem);
+  opacity: .95;
+}
+
+/* Botones redondeados */
+.hs-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hs-btn {
+  display: inline-block;
+  padding: .8rem 1.9rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s, color .2s, transform .2s;
+}
+.hs-btn:hover { transform: translateY(-2px); }
+.hs-btn.primary { background: var(--color-orange, #eab308); color: var(--color-navy, #0f172a); }
+.hs-btn.primary:hover { background: var(--color-orange-hover, #ca8a04); }
+.hs-btn.ghost { border-color: #fff; color: #fff; }
+.hs-btn.ghost:hover { background: #fff; color: var(--color-navy, #0f172a); }
+
+/* Fila de productos sobre la "mesa" */
+.hs-shelf {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+}
+.hs-shelf::after {            /* mesa de madera simulada */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: clamp(34px, 6vw, 80px);
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 2px, transparent 2px 90px),
+    linear-gradient(#d9b98a, #c39a62);
+  z-index: 0;
+}
+.hs-item {
+  position: relative;
+  z-index: 1;
+  height: calc(var(--s, 1) * clamp(110px, 21vw, 290px));
+  width: auto;
+  margin: 0 -1.2%;
+  margin-bottom: clamp(6px, 1.6vw, 20px);   /* los productos "pisan" la mesa */
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,.28));
+  /* entrada (transform/opacity) + flotación suave (translate) */
+  animation:
+    hs-rise .8s ease backwards var(--d, 0s),
+    hs-float 5s ease-in-out infinite var(--d, 0s);
+  transition: transform .25s ease;
+}
+.hs-item:hover { transform: translateY(-10px) scale(1.05); }
+
+@keyframes hs-rise  { from { opacity: 0; transform: translateY(50px); } }
+@keyframes hs-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+
+/* Móvil: menos productos para que no se aprieten */
+@media (max-width: 700px) { .hs-item:nth-child(n+6) { display: none; } }
+@media (max-width: 480px) { .hs-item:nth-child(n+5) { display: none; } }
+
+/* Accesibilidad: sin animaciones si el usuario las desactivó */
+@media (prefers-reduced-motion: reduce) {
+  .hs-item { animation: none; transition: none; }
+  .hs-btn { transition: none; }
+}
+
+/* ---------- CORRECCIONES RESPONSIVE (vitrina) ---------- */
+/* FILA DE PRODUCTOS: que SIEMPRE quepa en pantalla.
+   Hasta 1100px el tamaño se calcula en función del ANCHO (vw). */
+@media (max-width: 1100px) {
+  .hs-shelf { padding: 0 .5rem; }
+  .hs-item {
+    height: auto;
+    width: calc(var(--s, 1) * 14vw);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0 -.6vw;
+    border-radius: 6px;
+  }
+}
+
+/* Teléfono: solo 4 imágenes, más grandes para que se vean bien */
+@media (max-width: 700px) {
+  .hs-item {
+    width: calc(var(--s, 1) * 22vw);
+    margin: 0 -1vw;
+  }
+  .hs-item:nth-child(n+5) { display: none; }
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .cta-banner-inner { flex-direction: column; text-align: center; }
+}

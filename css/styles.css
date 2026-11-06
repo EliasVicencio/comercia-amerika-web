@@ -1,6 +1,15 @@
 /* ============================================
-   AMERIKA - Estilos principales
-   CSS puro · Responsive · Multi-idioma ready
+   AMERIKA - Estilos GLOBALES
+   Contiene solo lo común a TODAS las páginas:
+   variables, reset, tipografía, botones,
+   header, footer, botón de WhatsApp y barra
+   de cookies.
+
+   Los estilos de contenido de cada página
+   van en su propio archivo:
+     index.css, nosotros.css, marcas.css,
+     route-market.css, drinkball.css,
+     pink-moon.css, contacto.css
    ============================================ */
 
 /* ---------- Variables ---------- */
@@ -15,7 +24,7 @@
   --color-text: #1e293b;
   --color-text-muted: #64748b;
   --color-border: #e2e8f0;
-  
+
   --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
@@ -23,6 +32,13 @@
   --radius: 12px;
   --radius-sm: 8px;
   --transition: 0.25s ease;
+}
+
+/* Paleta del sitio (reestructuración 2026):
+   verde Amerika, añadido como variable reutilizable. */
+:root {
+  --color-green: #16a34a;        /* verde Amerika */
+  --color-green-dark: #15803d;   /* verde para el hover de botones */
 }
 
 /* ---------- Reset & Base ---------- */
@@ -90,6 +106,16 @@ h3 { font-size: 1.25rem; }
   margin-bottom: 0.75rem;
 }
 
+/* Versión posterior del section-label (gana por orden en el archivo original) */
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 0.75rem;
+}
+
 /* ---------- Layout ---------- */
 .container {
   width: 100%;
@@ -102,7 +128,7 @@ h3 { font-size: 1.25rem; }
   padding: 4.5rem 0;
 }
 
-/* ---------- Buttons ---------- */
+/* ---------- Botones generales ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -134,6 +160,7 @@ h3 { font-size: 1.25rem; }
   color: var(--color-white);
 }
 
+/* Botón destacado oscuro (versión completa) */
 .btn.btn-dark {
   background-color: var(--color-navy);
   color: var(--color-white);
@@ -189,6 +216,21 @@ h3 { font-size: 1.25rem; }
     font-size: 12.5px;
     padding: 0.95em 1.1em;
   }
+}
+
+/* Versión posterior (bloque "Optimización") */
+.btn.btn-dark {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  padding: 0.8em 1.4em;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.btn.btn-dark:hover {
+  background-color: #1e293b;
+  transform: translateY(-1px);
 }
 
 /* ---------- Header ---------- */
@@ -307,60 +349,88 @@ h3 { font-size: 1.25rem; }
   cursor: pointer;
 }
 
-/* ---------- Hero ---------- */
-.hero {
-  padding: 4rem 0 3rem;
+/* Versión posterior del header (bloque "Optimización"):
+   la barra es algo más baja que la primera versión */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(248, 245, 240, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
-/* Entrada suave del hero: el contenido "sube" al cargar la página */
-.hero-content > * {
-  animation: hero-in 0.6s ease both;
-}
-.hero-content > *:nth-child(2) { animation-delay: 0.1s; }
-.hero-content > *:nth-child(3) { animation-delay: 0.2s; }
-.hero-content > *:nth-child(4) { animation-delay: 0.3s; }
-@keyframes hero-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
+.header-inner {
+  max-width: 100% !important;
+  padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 90px;
+  gap: 2rem;
 }
 
-/* Frase rotativa del hero (el JS cambia el texto cada 4 s) */
-.hero-rotator {
-  margin-top: 1rem;
-  font-weight: 600;
-  color: var(--color-green);
-  min-height: 1.6em;          /* reserva el alto para que nada salte */
-  transition: opacity 0.4s ease;
-}
-
-/*
-   BANNER DE IMPACTO: imagen full-width con UNA sola frase encima,
-   estilo de las páginas que el cliente mostró como referencia.
-   Usa la paleta de colores de DrinkBall como fondo visual.
-*/
-.impact-banner {
-  min-height: 340px;
+.logo {
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),  /* velo oscuro */
-    url('../img/drink-sabores.png') center / cover no-repeat;
-}
-.impact-banner-inner {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 3rem 1.25rem;
-  text-align: center;
-  color: #fff;
-}
-.impact-banner h2 {
-  font-size: clamp(1.8rem, 5vw, 3rem);   /* crece con la pantalla */
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--color-navy);
+  gap: 0.5rem;
 }
 
-/* REVEAL AL HACER SCROLL: los .container de cada sección parten un
-   poco bajados y transparentes, y "suben" al entrar en pantalla.
+.logo-badge {
+  background: var(--color-navy);
+  color: var(--color-orange);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav.nav-side-left { justify-content: flex-end; }
+.nav.nav-side-right { justify-content: flex-start; }
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.lang-switch button {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.lang-switch button.active {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--color-navy);
+  cursor: pointer;
+}
+
+/* ---------- REVEAL al hacer scroll ----------
+   Los .container de cada sección parten un poco bajados y
+   transparentes, y "suben" al entrar en pantalla.
    js/main.js agrega las clases; aquí solo van los estilos. */
 .reveal {
   opacity: 0;
@@ -370,229 +440,6 @@ h3 { font-size: 1.25rem; }
 .reveal.reveal-in {
   opacity: 1;
   transform: translateY(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-content > * {
-    animation: none;          /* sin animación para quien la pide */
-  }
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.hero-content .section-label {
-  margin-bottom: 1rem;
-}
-
-.hero-content h1 {
-  margin-bottom: 1.25rem;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  color: var(--color-text-muted);
-  margin-bottom: 2rem;
-  max-width: 480px;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-/* Caja de imagen destacada: mismo mecanismo "cover" que las tarjetas
-   de marca. La imagen llena la caja y se recorta con las esquinas. */
-.hero-image {
-  background: var(--color-cream-dark);
-  border-radius: var(--radius);
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Variante para imágenes que NO deben recortarse (por ejemplo, la paleta
-   de colores de DrinkBall en drinkball.html): la caja no fuerza una
-   proporción fija, se ajusta al alto natural de la imagen, así no queda
-   espacio de sobra arriba ni abajo. */
-.hero-image.hero-contain {
-  aspect-ratio: auto;
-}
-.hero-image.hero-contain img {
-  display: block;        /* quita el pequeño hueco que deja img como inline */
-  height: auto;          /* la caja toma el alto real de la imagen */
-  object-fit: contain;
-}
-
-/* ---------- Countries bar ---------- */
-.countries-bar {
-  background: var(--color-navy);
-  color: var(--color-white);
-  padding: 1rem 0;
-}
-
-.countries-bar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.countries-list {
-  display: flex;
-  gap: 2rem;
-}
-
-.countries-list span {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.countries-bar .years {
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-/* ---------- Cards ---------- */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-
-.card {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 1.75rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(15, 23, 42, 0.04);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.card-number {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-orange);
-  margin-bottom: 0.75rem;
-}
-
-.card h3 {
-  margin-bottom: 0.6rem;
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-}
-
-/* ---------- Brands ---------- */
-.brands-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-
-.brand-card {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  text-align: center;
-  border: 1px solid rgba(15, 23, 42, 0.05);
-}
-
-/*
-   Mecanismo de imagen tipo "cobertura" (cover):
-   - La caja siempre mide lo mismo (180px de alto).
-   - La imagen la llena por completo (object-fit: cover),
-     se recorta por los bordes redondeados y nunca se deforma.
-   Se usa en las tarjetas de marca de todas las páginas.
-*/
-.brand-logo {
-  height: 180px;
-  background: var(--color-cream-dark);
-  border-radius: var(--radius-sm);
-  overflow: hidden;           /* recorta lo que sobresalga de la caja */
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-}
-
-/* La imagen SIEMPRE llena su caja, sin deformarse */
-.brand-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.brand-logo-full {
-  width: 100%;
-  height: 110px;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.brand-logo-full img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover !important;
-  object-position: center;
-}
-
-.brand-card h4 {
-  font-size: 1.05rem;
-  margin-bottom: 0.35rem;
-}
-
-.brand-card p {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-/* ---------- CTA Banner ---------- */
-.cta-banner {
-  background: var(--color-orange);
-  padding: 3rem 0;
-}
-
-.cta-banner-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.cta-banner h2 {
-  color: var(--color-navy);
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
-  max-width: 520px;
 }
 
 /* ---------- Footer ---------- */
@@ -652,248 +499,225 @@ h3 { font-size: 1.25rem; }
   object-fit: contain;
 }
 
-/* ---------- Page specific ---------- */
-.page-hero {
-  padding: 3.5rem 0 2rem;
+/* AVISO +18: línea legal en el pie de página */
+.footer-age {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-top: 0.75rem;
 }
 
-.page-hero h1 {
-  margin-bottom: 1rem;
+/* Versión posterior del footer (bloque "Optimización") */
+.footer {
+  background: var(--color-navy);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 3rem 0 1.5rem;
 }
 
-.page-hero p {
-  font-size: 1.1rem;
-  color: var(--color-text-muted);
-  max-width: 560px;
-}
-
-/* Features / Modelo de negocio */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
-  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
 }
 
-.feature-item {
-  text-align: center;
-  padding: 1.5rem 1rem;
+.footer-brand {
+  font-weight: 800;
+  color: var(--color-white);
+  font-size: 1.2rem;
 }
 
-.feature-item h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-navy);
-}
-
-.feature-item p {
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
   font-size: 0.9rem;
-  color: var(--color-text-muted);
 }
 
-/* Mission / Vision boxes */
-.mv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-
-.mv-box {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 2rem;
-  border: 1px solid rgba(15, 23, 42, 0.05);
-}
-
-.mv-box h3 {
-  margin-bottom: 0.75rem;
+.footer-links a:hover {
   color: var(--color-orange);
 }
 
-/* Contact */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.contact-info {
+.footer-bottom {
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.contact-item {
-  background: var(--color-white);
-  padding: 1.25rem 1.5rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(15, 23, 42, 0.05);
-}
-
-.contact-item strong {
-  display: block;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.25rem;
+  color: rgba(255, 255, 255, 0.65);
 }
 
-.contact-form {
-  background: var(--color-white);
-  padding: 2rem;
-  border-radius: var(--radius);
+.footer-age {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 0.75rem;
+}
+
+.footer-age a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+}
+
+/* ---------- BOTÓN FLOTANTE DE WHATSAPP ----------
+   Está fijo en la esquina inferior derecha de todas las páginas. */
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;         /* verde oficial de WhatsApp */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: var(--shadow-md);
 }
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
+.whatsapp-float:hover {
+  transform: scale(1.07);
+}
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: var(--color-navy);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-family: inherit;
-  font-size: 0.95rem;
-  background: var(--color-cream);
-  transition: border-color var(--transition);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-orange);
-}
-
-.form-group textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.form-check {
+/* Versión posterior (bloque "Optimización") */
+.whatsapp-float {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 100;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
   display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  margin: 1.25rem 0;
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition);
 }
 
-.form-check input {
-  margin-top: 0.2rem;
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
 
-/* Route Market specific */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 1.5rem 0;
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
 }
 
-.tag {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.highlight-box {
+/* ---------- AVISO DE COOKIES ----------
+   (Ley 19.628 / Ley 21.719)   Barra fija abajo de la pantalla. Aparece solo si la persona
+   todavía no ha elegido (lo guarda js/main.js en localStorage). */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;               /* sobre el resto, pero bajo el age-modal */
   background: var(--color-navy);
-  color: var(--color-white);
-  padding: 1.5rem 2rem;
-  border-radius: var(--radius);
-  margin: 2rem 0;
-}
-
-.highlight-box p {
-  font-size: 1.05rem;
-  line-height: 1.55;
-}
-
-/* Table */
-.table-wrapper {
-  overflow-x: auto;
-  margin: 2rem 0;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--color-white);
-  font-size: 0.95rem;
-}
-
-th, td {
+  color: #fff;
   padding: 1rem 1.25rem;
-  text-align: left;
-  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
 }
-
-th {
-  background: var(--color-cream-dark);
-  font-weight: 600;
-  color: var(--color-navy);
-}
-
-tr:last-child td {
-  border-bottom: none;
-  font-weight: 600;
-}
-
-/* Stats */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+.cookie-banner .cookie-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
   gap: 1.25rem;
-  margin: 2rem 0;
+  flex-wrap: wrap;             /* en pantallas angostas pasa a dos líneas */
+}
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  flex: 1 1 320px;             /* el texto toma el ancho disponible */
+}
+.cookie-banner a {
+  color: #fff;
+  text-decoration: underline;
+}
+.cookie-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+.cookie-actions button {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.cookie-actions button.btn-accept {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: #fff;
 }
 
-.stat-card {
-  background: var(--color-white);
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  text-align: center;
-  border: 1px solid rgba(15, 23, 42, 0.05);
+/* Versión posterior (bloque "Optimización") */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background: var(--color-navy);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
 }
 
-.stat-card strong {
-  display: block;
-  font-size: 1.5rem;
-  color: var(--color-orange);
-  margin-bottom: 0.35rem;
+.cookie-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
-.stat-card span {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+.cookie-banner p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  flex: 1 1 300px;
 }
 
-/* ---------- Responsive ---------- */
+.cookie-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cookie-actions button {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-sm);
+}
+
+.cookie-actions button.btn-accept {
+  background: var(--color-green);
+  border-color: var(--color-green);
+}
+
+/* ---------- Responsive del header y nav ---------- */
 /* En pantallas medianas el menú completo ya no cabe ni en una línea
    (los textos en español son largos), así que pasamos a hamburguesa antes. */
 @media (max-width: 1100px) {
@@ -949,871 +773,9 @@ tr:last-child td {
   }
 }
 
-@media (max-width: 900px) {
-  .hero-grid,
-  .contact-grid,
-  .mv-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* ---------- CORRECCIONES RESPONSIVE (header) ---------- */
 
-@media (max-width: 600px) {
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .countries-list {
-    gap: 1rem;
-  }
-
-  .section {
-    padding: 3rem 0;
-  }
-}
-
-/* =========================================
-   ESTILOS PARA EL MODAL DEL EQUIPO
-   ========================================= */
-
-.custom-modal {
-  display: none; /* Oculto por defecto */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
-  backdrop-filter: blur(4px); /* Efecto borroso de fondo */
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-/* Cuando tiene la clase .show, se muestra */
-.custom-modal.show {
-  display: flex;
-}
-
-.custom-modal-content {
-  background-color: #fff;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  width: 100%;
-  max-width: 1000px; /* Ancho máximo del modal */
-  max-height: 90vh; /* No más alto que la pantalla */
-  overflow-y: auto; /* Scroll si hay muchos elementos */
-  position: relative;
-  animation: fadeInModal 0.3s ease;
-}
-
-@keyframes fadeInModal {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.custom-modal-close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.custom-modal-close:hover {
-  color: #d9534f; /* Rojo al pasar el mouse */
-}
-
-/* --- Estilos del Organigrama --- */
-.organigrama-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-.org-level {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 2rem;
-}
-
-.org-flex-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-}
-
-.org-branch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.org-sub-level {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-/* Tarjetas de personas */
-.org-card {
-  background: #fff;
-  border: 1px solid var(--color-cream-dark, #e0e0e0);
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  min-width: 200px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.org-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-.org-primary {
-  border-top: 4px solid var(--color-navy, #0d1b2a);
-  min-width: 250px;
-}
-
-.org-small {
-  padding: 1rem;
-  min-width: 160px;
-}
-
-.org-img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 3px solid var(--color-cream, #f4f1ea);
-}
-
-.org-small .org-img {
-  width: 70px;
-  height: 70px;
-}
-
-.org-card h4 {
-  margin: 0;
-  font-size: 1.1rem;
-  color: var(--color-navy, #0d1b2a);
-}
-
-.org-card p {
-  margin: 0.2rem 0 0 0;
-  font-size: 0.9rem;
-  color: var(--color-text-muted, #666);
-}
-
-/* Líneas conectoras */
-.org-line-vertical {
-  width: 2px;
-  height: 40px;
-  background-color: #ccc;
-  margin: 0 auto;
-}
-
-.org-line-vertical-small {
-  width: 2px;
-  height: 30px;
-  background-color: #ccc;
-  margin: 1rem auto;
-}
-
-/* Responsive para el organigrama */
-@media (max-width: 768px) {
-  .org-flex-row {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .org-sub-level {
-    flex-direction: column;
-  }
-}
-
-/* ============================================
-   NUEVOS ESTILOS (reestructuración 2026)
-   Todo lo nuevo empieza aquí, con comentarios
-   paso a paso para que sea fácil de entender.
-   ============================================ */
-
-/*
-   1) PALETA DEL SITIO
-   Amerika usa dos colores base: azul marino y verde.
-   El verde (palta/lima) es el color distinto de la marca,
-   así que lo agregamos como variable reutilizable.
-*/
-:root {
-  --color-green: #16a34a;        /* verde Amerika */
-  --color-green-dark: #15803d;   /* verde para el hover de botones */
-}
-
-/* El banner de "llamado final" ahora es verde, no amarillo */
-.cta-banner.green {
-  background: var(--color-green);
-}
-.cta-banner.green h2 {
-  color: var(--color-white);
-}
-
-/*
-   2) CIFRAS DE ESCALA (como ICB)
-   Bandera azul marino con números grandes en verde.
-*/
-.stats-band {
-  background: var(--color-navy);
-  color: var(--color-white);
-  padding: 2.5rem 0;
-}
-.stats-band-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  text-align: center;
-}
-.stats-band strong {
-  display: block;              /* fuerza que el número quede en su propia línea */
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  color: var(--color-green);
-  margin-bottom: 0.25rem;
-}
-.stats-band span {
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-/*
-   3) "DOS CAMINOS" DE LA PORTADA
-   Dos tarjetas grandes: una para marcas, otra para clientes.
-*/
-.paths-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-.path-card {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 2rem;
-  border-top: 4px solid var(--color-orange);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.path-card.green {
-  border-top-color: var(--color-green);
-}
-.path-card p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  flex-grow: 1;                /* empuja el botón al fondo de la tarjeta */
-}
-
-/* En pantallas pequeñas, las tarjetas se apilan una sobre otra */
-@media (max-width: 700px) {
-  .paths-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/*
-   4) BOTÓN FLOTANTE DE WHATSAPP
-   Está fijo en la esquina inferior derecha de todas las páginas.
-*/
-.whatsapp-float {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 90;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25d366;         /* verde oficial de WhatsApp */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-md);
-}
-.whatsapp-float:hover {
-  transform: scale(1.07);
-}
-.whatsapp-float svg {
-  width: 28px;
-  height: 28px;
-  fill: currentColor;
-}
-
-/*
-   5) AVISO +18 Y CONTROL DE EDAD
-   (a) Modal de control de edad en las páginas de bebidas con alcohol.
-   (b) Sello de advertencia reutilizable dentro de la página.
-   (c) Línea legal en el pie de página.
-*/
-.age-modal {
-  position: fixed;
-  z-index: 2000;
-  inset: 0;                    /* atajo para: top/right/bottom/left = 0 */
-  background: rgba(15, 23, 42, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-.age-modal.hidden {
-  display: none;               /* cuando el JS agrega .hidden, desaparece */
-}
-.age-modal-content {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  max-width: 440px;
-  width: 100%;
-  text-align: center;
-}
-.age-modal-content h2 {
-  color: var(--color-navy);
-  margin: 1rem 0 0.5rem;
-}
-.age-modal-content p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-}
-.age-modal-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.age-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--color-navy);
-  color: var(--color-white);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-}
-
-.footer-age {
-  font-size: 0.8rem;
-  opacity: 0.75;
-  margin-top: 0.75rem;
-}
-
-/*
-   6) CANALES Y PASOS (página Route to market)
-*/
-.channel-card {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  border: 1px solid rgba(15, 23, 42, 0.05);
-}
-.channel-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.4rem;
-}
-.channel-card p {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-}
-
-/* Los 5 pasos, numerados en círculo verde */
-.steps-list {
-  counter-reset: paso;         /* nombre del contador para los números */
-  margin-top: 2rem;
-  display: grid;
-  gap: 1.25rem;
-}
-.step-item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  background: var(--color-white);
-  padding: 1.25rem 1.5rem;
-  border-radius: var(--radius);
-  border: 1px solid rgba(15, 23, 42, 0.05);
-}
-.step-item::before {
-  counter-increment: paso;
-  content: counter(paso);      /* escribe 1, 2, 3... automáticamente */
-  flex-shrink: 0;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  background: var(--color-green);
-  color: white;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.step-item h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.25rem;
-}
-.step-item p {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-}
-
-/*
-   7) FILTROS DE MARCAS (página Nuestras marcas)
-*/
-.brand-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 1.5rem 0 0;
-}
-.brand-filters button {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: 0.5rem 1.1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-navy);
-}
-.brand-filters button.active {
-  background: var(--color-navy);
-  border-color: var(--color-navy);
-  color: var(--color-white);
-}
-
-/* Las clases .cat-bebidas-alcohol etc. no llevan estilos:
-   solo las usa el JavaScript para filtrar. */
-
-/*
-   8) TARJETA DE PRODUCTO (portafolio por marca)
-*/
-.product-card {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  border: 1px solid rgba(15, 23, 42, 0.05);
-  padding: 1.5rem;
-  text-align: center;
-}
-.product-card .product-image {
-  height: 180px;              /* misma caja "cover" que .brand-logo */
-  background: var(--color-cream-dark);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-  overflow: hidden;
-}
-
-/* Igual que en las tarjetas de marca: la imagen llena su caja */
-.product-card .product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* FOTO dentro de un recuadro hero-image: llena TODO el espacio
-   disponible del recuadro (ocupa el contorno completo). */
-.hero-image img.fit-contain {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Si la foto es vertical, el recuadro se alarga: la sección crece
-   (aceptado) y así la imagen casi no se recorta. */
-.card .hero-image:has(img.fit-contain) {
-  aspect-ratio: 3 / 4;
-}
-
-/*
-   12) MODAL DE CONSENTIMIENTO DE DATOS (contacto.html)
-   Se muestra al clic en "Información básica sobre protección
-   de datos". Reutiliza las clases .custom-modal del equipo.
-*/
-/* Imagen suelta centrada en su contenedor (hero de pink-moon.html) */
-.img-centrada {
-  display: block;              /* sin esto, margin auto no centra */
-  margin: 0 auto;
-  width: 100%;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  /*Suaviza un poco la pixelación cuando la foto original es de baja resolución
-     (el parche real es conseguir la foto en alta resolución) */
-  image-rendering: auto;
-}
-.consent-trigger {
-  text-align: center;
-  margin: 0.5rem 0 1.25rem;
-}
-.consent-link {
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--color-green);
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.consent-modal-content {
-  max-width: 640px;
-  max-height: 80vh;            /* si el texto no cabe, el modal hace scroll */
-  overflow-y: auto;
-  text-align: left;
-}
-.consent-list {
-  margin: 0 0 1.25rem;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.75rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--color-text-muted);
-}
-.consent-list strong {
-  color: var(--color-navy);
-}
-/* Botones de decisión del consentimiento dentro del modal */
-.consent-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-  flex-wrap: wrap;
-}
-.consent-actions button {
-  border: none;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 0.7rem 1.5rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-}
-.btn-consent-accept {
-  background: var(--color-green);
-  color: #fff;
-}
-.btn-consent-accept:disabled {
-  background: var(--color-text-muted);
-  opacity: 0.6;
-  cursor: not-allowed;         /* sin consentimiento, no se puede avanzar */
-}
-.btn-consent-reject {
-  background: transparent;
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-text-muted);
-}
-
-/*
-   11) AVISO DE COOKIES (Ley 19.628 / Ley 21.719)   Barra fija abajo de la pantalla. Aparece solo si la persona
-   todavía no ha elegido (lo guarda js/main.js en localStorage).
-*/
-.cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2000;               /* sobre el resto, pero bajo el age-modal */
-  background: var(--color-navy);
-  color: #fff;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
-}
-.cookie-banner .cookie-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;             /* en pantallas angostas pasa a dos líneas */
-}
-.cookie-banner p {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
-  flex: 1 1 320px;             /* el texto toma el ancho disponible */
-}
-.cookie-banner a {
-  color: #fff;
-  text-decoration: underline;
-}
-.cookie-actions {
-  display: flex;
-  gap: 0.75rem;
-}
-.cookie-actions button {
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: transparent;
-  color: #fff;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.55rem 1.25rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-}
-.cookie-actions button.btn-accept {
-  background: var(--color-green);
-  border-color: var(--color-green);
-  color: #fff;
-}
-
-/* FOTO usada como icono de tarjeta (ocasiones en drinkball.html):
-   la imagen ocupa el ancho del lugar que tiene designado y la caja
-   se ajusta a su alto natural, así no se deforma ni se corta. */
-.card > img.card-icon {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-sm);
-  margin-bottom: 1rem;
-}
-
-/* Caso donde la clase .product-image está puesta DIRECTAMENTE en el <img>
-   (sin caja contenedora, como en drinkball.html):
-   la imagen se centra y llena el ancho de la tarjeta, sin quedar a la izquierda. */
-.product-card img.product-image {
-  display: block;
-  width: 100%;
-  height: 180px;              /* misma altura de caja que las demás */
-  object-fit: cover;          /* llena la tarjeta sin deformarse */
-  border-radius: var(--radius-sm);
-  background: var(--color-cream-dark);
-}
-.product-card h4 {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-.product-card p {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-/*
-   9) FORMULARIO: NUEVAS FILAS (cargo) y Aviso de éxito/error
-*/
-.form-check label a {
-  text-decoration: underline;
-  color: var(--color-navy);
-}
-
-.form-alert {
-  padding: 1rem 1.25rem;
-  border-radius: var(--radius-sm);
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-  display: none;               /* el JS lo muestra según la URL */
-}
-.form-alert.success {
-  display: block;
-  background: #dcfce7;         /* verde muy claro */
-  color: var(--color-green-dark);
-}
-.form-alert.error {
-  display: block;
-  background: #fee2e2;         /* rojo muy claro */
-  color: #b91c1c;
-}
-
-/* Horario de atención, se ve debajo de los datos de contacto */
-.contact-item small {
-  color: var(--color-text-muted);
-  font-size: 0.8rem;
-}
-
-/* El selector es igual de alto que los inputs en móvil */
-.form-group select {
-  min-height: 48px;
-}
-
-/*
-   10) BANDA "TRABAJAMOS CON" (index, generada con JavaScript)
-   Una cinta de logos que desfila lentamente. El JS duplica la
-   lista para que el bucle sea continuo y sin saltos.
-   El MOVIMIENTO lo controla js/main.js (no animación CSS): así
-   la velocidad puede frenar e invertirse suavemente según el scroll,
-   sin cortes visibles.
-*/
-.allies-band {
-  background: var(--color-navy);
-  padding: 2.25rem 0;
-  overflow: hidden;            /* corta la cinta en los bordes de pantalla */
-}
-.allies-title {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-.allies-viewport {
-  /* degradado a los lados: la cinta "sale" de la pantalla con suavidad */
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-.allies-track {
-  display: flex;
-  align-items: center;
-  gap: 3.5rem;
-  width: max-content;          /* lo ancho justo para que quepa todo seguido */
-  will-change: transform;      /* avisa al navegador que esta caja se moverá */
-  /* Margen extra arriba y abajo: deja aire para que, cuando un logo
-     crece al pasar el mouse, el agrandado no quede cortado por la banda. */
-  padding: 1rem 0;
-}
-.allies-track img {
-  height: 52px;
-  width: auto;
-  flex-shrink: 0;              /* los logos nunca se aprietan entre sí */
-  transition: transform 0.25s ease;  /* el aumento de tamaño es suave */
-}
-
-/* Al pasar el mouse, el logo crece para verse mejor (sin mover la cinta) */
-.allies-track img:hover {
-  transform: scale(1.35);
-}
-
-/* ============================================
-   HERO ESTILO VITRINA (pegar al final de css/styles.css)
-   Usa tus variables: --color-green, --color-orange,
-   --color-orange-hover, --color-navy.
-   ============================================ */
-
-.hero-showcase {
-  position: relative;
-  overflow: hidden;
-  background: var(--color-green, #1e7b3c);
-  color: #fff;
-  text-align: center;
-  padding: clamp(2.5rem, 7vw, 5.5rem) 0 0;
-}
-
-/* Titular: línea chica + frase gigante */
-.hs-title { margin: 0 0 1rem; line-height: 1; }
-.hs-title span { display: block; }
-.hs-kicker {
-  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
-  font-weight: 400;
-  margin-bottom: .6rem;
-}
-.hs-headline {
-  font-size: clamp(2.6rem, 9vw, 6.4rem);
-  font-weight: 800;
-  letter-spacing: -.02em;
-  text-transform: uppercase;
-}
-.hs-sub {
-  max-width: 560px;
-  margin: 0 auto 1.75rem;
-  font-size: clamp(.95rem, 1.6vw, 1.1rem);
-  opacity: .95;
-}
-
-/* Botones redondeados */
-.hs-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.hs-btn {
-  display: inline-block;
-  padding: .8rem 1.9rem;
-  border: 2px solid transparent;
-  border-radius: 999px;
-  font-size: .9rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background .2s, color .2s, transform .2s;
-}
-.hs-btn:hover { transform: translateY(-2px); }
-.hs-btn.primary { background: var(--color-orange, #eab308); color: var(--color-navy, #0f172a); }
-.hs-btn.primary:hover { background: var(--color-orange-hover, #ca8a04); }
-.hs-btn.ghost { border-color: #fff; color: #fff; }
-.hs-btn.ghost:hover { background: #fff; color: var(--color-navy, #0f172a); }
-
-/* Fila de productos sobre la "mesa" */
-.hs-shelf {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: clamp(1.5rem, 4vw, 3rem);
-}
-.hs-shelf::after {            /* mesa de madera simulada */
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: clamp(34px, 6vw, 80px);
-  background:
-    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 2px, transparent 2px 90px),
-    linear-gradient(#d9b98a, #c39a62);
-  z-index: 0;
-}
-.hs-item {
-  position: relative;
-  z-index: 1;
-  height: calc(var(--s, 1) * clamp(110px, 21vw, 290px));
-  width: auto;
-  margin: 0 -1.2%;
-  margin-bottom: clamp(6px, 1.6vw, 20px);   /* los productos "pisan" la mesa */
-  filter: drop-shadow(0 10px 10px rgba(0,0,0,.28));
-  /* entrada (transform/opacity) + flotación suave (translate): no se pisan con el hover */
-  animation:
-    hs-rise .8s ease backwards var(--d, 0s),
-    hs-float 5s ease-in-out infinite var(--d, 0s);
-  transition: transform .25s ease;
-}
-.hs-item:hover { transform: translateY(-10px) scale(1.05); }
-
-@keyframes hs-rise  { from { opacity: 0; transform: translateY(50px); } }
-@keyframes hs-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
-
-/* Móvil: menos productos para que no se aprieten */
-@media (max-width: 700px) { .hs-item:nth-child(n+6) { display: none; } }
-@media (max-width: 480px) { .hs-item:nth-child(n+5) { display: none; } }
-
-/* Accesibilidad: sin animaciones si el usuario las desactivó */
-@media (prefers-reduced-motion: reduce) {
-  .hs-item { animation: none; transition: none; }
-  .hs-btn { transition: none; }
-}
-
-/* ============================================
-   CORRECCIONES RESPONSIVE
-   Pegar AL FINAL de css/styles.css (después del bloque
-   del hero vitrina), para que estas reglas ganen.
-   ============================================ */
-
-/* ---------- 1) HEADER: logo proporcionado en tablet/móvil ---------- */
+/* HEADER: logo proporcionado en tablet/móvil */
 @media (max-width: 1100px) {
   .header-inner { height: 68px; }
   .logo img { height: 44px; }            /* antes 68px: tapaba la hamburguesa */
@@ -1822,571 +784,7 @@ tr:last-child td {
   .logo img { height: 38px; }
 }
 
-/* ---------- 2) FILA DE PRODUCTOS: que SIEMPRE quepa en pantalla ----------
-   Hasta 1100px el tamaño de cada imagen se calcula en función del ANCHO
-   de la pantalla (vw), no de su alto natural. Así 7 imágenes nunca
-   superan el 100% del ancho y no se cortan en los bordes.
-   Cada imagen queda cuadrada y se recorta con object-fit: cover. */
-@media (max-width: 1100px) {
-  .hs-shelf { padding: 0 .5rem; }
-  .hs-item {
-    height: auto;
-    width: calc(var(--s, 1) * 14vw);
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    margin: 0 -.6vw;
-    border-radius: 6px;
-  }
-}
-
-/* Teléfono: solo 4 imágenes, más grandes para que se vean bien */
-@media (max-width: 700px) {
-  .hs-item {
-    width: calc(var(--s, 1) * 22vw);
-    margin: 0 -1vw;
-  }
-  .hs-item:nth-child(n+5) { display: none; }
-}
-
-/* ============================================
-       AMERIKA - Estilos Principales y Optimización
-       ============================================ */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-main);
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-cream);
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color var(--transition);
-}
-
-button, .btn {
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all var(--transition);
-}
-
-/* ---------- Typography ---------- */
-h1, h2, h3, h4 {
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--color-navy);
-}
-
-h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
-h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
-h3 { font-size: 1.25rem; }
-
-.section-label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-orange);
-  margin-bottom: 0.75rem;
-}
-
-/* ---------- Layout ---------- */
-.container {
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.section {
-  padding: 4.5rem 0;
-}
-
-/* ---------- Buttons ---------- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.6rem;
-  border-radius: 999px;
-  font-weight: 600;
-}
-
-.btn.btn-dark {
-  background-color: var(--color-navy);
-  color: var(--color-white);
-  padding: 0.8em 1.4em;
-  border-radius: 9px;
-  font-size: 0.88rem;
-  white-space: nowrap;
-}
-
-.btn.btn-dark:hover {
-  background-color: #1e293b;
-  transform: translateY(-1px);
-}
-
-/* ---------- Sticky Header ---------- */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: rgba(248, 245, 240, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-}
-
-.header-inner {
-  max-width: 100% !important;
-  padding: 0 2.5rem;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  height: 90px;
-  gap: 2rem;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1.3rem;
-  color: var(--color-navy);
-  gap: 0.5rem;
-}
-
-.logo-badge {
-  background: var(--color-navy);
-  color: var(--color-orange);
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  letter-spacing: -0.02em;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.nav.nav-side-left { justify-content: flex-end; }
-.nav.nav-side-right { justify-content: flex-start; }
-.lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-left: 0.5rem;
-}
-
-.lang-switch button {
-  background: none;
-  border: none;
-  color: var(--color-text-muted);
-  cursor: pointer;
-}
-
-.lang-switch button.active {
-  color: var(--color-navy);
-  font-weight: 700;
-}
-
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  color: var(--color-navy);
-  cursor: pointer;
-}
-
-/* ---------- Page Hero ---------- */
-.page-hero {
-  padding: 4rem 0 2rem;
-  text-align: left;
-}
-
-.page-hero p.intro-text {
-  margin-top: 1rem;
-  color: var(--color-text-muted);
-  max-width: 680px;
-  font-size: 1.1rem;
-}
-
-/* ---------- Dynamic Cards Grid (Canales) ---------- */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-
-.channel-card-enhanced {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
-  display: flex;
-  flex-direction: column;
-}
-
-.channel-card-enhanced:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.card-img-header {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  margin-bottom: 1rem;
-}
-
-.channel-card-enhanced h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.4rem;
-}
-
-.channel-card-enhanced p {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-}
-
-/* ---------- Cobertura y Logística ---------- */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.hero-image {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  padding: 1rem;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.map-placeholder {
-  width: 100%;
-  height: 280px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: var(--radius-sm);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.map-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.15;
-  background-image: radial-gradient(#16a34a 2px, transparent 2px);
-  background-size: 16px 16px;
-}
-
-.map-badge {
-  display: inline-block;
-  background: var(--color-green);
-  color: white;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  z-index: 1;
-}
-
-/* ---------- Step Timeline Alternado ---------- */
-.steps-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  margin-top: 2.5rem;
-}
-
-.step-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.step-row.reverse {
-  direction: rtl;
-}
-
-.step-row.reverse .step-content {
-  direction: ltr;
-}
-
-.step-content {
-  background: var(--color-white);
-  padding: 2rem;
-  border-radius: var(--radius);
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  box-shadow: var(--shadow-sm);
-}
-
-.step-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
-  border-radius: 50%;
-  background: var(--color-green);
-  color: white;
-  font-weight: 800;
-  margin-bottom: 0.85rem;
-  font-size: 1.05rem;
-}
-
-.step-content h3 {
-  font-size: 1.15rem;
-  margin-bottom: 0.4rem;
-}
-
-.step-content p {
-  font-size: 0.93rem;
-  color: var(--color-text-muted);
-}
-
-.step-image-container {
-  height: 220px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(15, 23, 42, 0.05);
-}
-
-.step-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ---------- Servicios de Valor Agregado ---------- */
-.card {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(15, 23, 42, 0.05);
-  transition: transform var(--transition);
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-.highlight-box {
-  background: var(--color-navy);
-  color: var(--color-white);
-  padding: 1.75rem 2rem;
-  border-radius: var(--radius);
-  margin-top: 2.5rem;
-  border-left: 5px solid var(--color-green);
-}
-
-.highlight-box p {
-  font-size: 1.05rem;
-  line-height: 1.55;
-}
-
-/* ---------- CTA Banner ---------- */
-.cta-banner.green {
-  background: var(--color-green);
-  padding: 3.5rem 0;
-  color: white;
-}
-
-.cta-banner-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.cta-banner h2 {
-  color: white;
-  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-}
-
-/* ---------- Footer ---------- */
-.footer {
-  background: var(--color-navy);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 3rem 0 1.5rem;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 1.5rem;
-}
-
-.footer-brand {
-  font-weight: 800;
-  color: var(--color-white);
-  font-size: 1.2rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.9rem;
-}
-
-.footer-links a:hover {
-  color: var(--color-orange);
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.footer-age {
-  font-size: 0.8rem;
-  opacity: 0.7;
-  margin-top: 0.75rem;
-}
-
-.footer-age a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: underline;
-}
-
-/* ---------- Fixed WhatsApp Float ---------- */
-.whatsapp-float {
-  position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  z-index: 100;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25d366;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-lg);
-  transition: transform var(--transition);
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-.whatsapp-float svg {
-  width: 30px;
-  height: 30px;
-  fill: currentColor;
-}
-
-/* ---------- Cookie Banner ---------- */
-.cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2000;
-  background: var(--color-navy);
-  color: #fff;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.cookie-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.cookie-banner p {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-  flex: 1 1 300px;
-}
-
-.cookie-actions {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.cookie-actions button {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: transparent;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.5rem 1.1rem;
-  border-radius: var(--radius-sm);
-}
-
-.cookie-actions button.btn-accept {
-  background: var(--color-green);
-  border-color: var(--color-green);
-}
-
-/* ---------- Responsive ---------- */
+/* Media queries del bloque "Optimización" (se aplican después y ganan) */
 @media (max-width: 1024px) {
   .nav { display: none; }
   .header-inner {
@@ -2398,18 +796,10 @@ h3 { font-size: 1.25rem; }
   .mobile-toggle { display: block; }
 }
 
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .step-row, .step-row.reverse {
-    grid-template-columns: 1fr;
-    direction: ltr;
-  }
-  .step-row.reverse .step-content { direction: ltr; }
-  .step-image-container { height: 180px; }
-}
+/* ==========  CORRECCIONES RESPONSIVE: h1 más compacto (bloque Optimización)  ========== */
+h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
 
+/* Sección más compacta en móvil */
 @media (max-width: 600px) {
   .section { padding: 3rem 0; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .cta-banner-inner { flex-direction: column; text-align: center; }
 }

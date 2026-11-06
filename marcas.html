@@ -14,6 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/marcas.css">
+  <link rel="stylesheet" href="css/marcas-galeria.css">
 </head>
 <body>
 
@@ -50,81 +52,284 @@
 
   <section class="page-hero">
     <div class="container">
-      <p class="section-label" data-i18n="nav.brands">Nuestras marcas</p>
+      <span class="ga-badge"><span class="ga-dot" aria-hidden="true"></span><span data-i18n="bg.badge">Portafolio exclusivo Chile</span></span>
       <h1 data-i18n="bp.h1">Marcas que llevamos a la góndola</h1>
       <p style="margin-top: 1rem; color: var(--color-text-muted); max-width: 640px;" data-i18n="bp.intro">
         Marcas con potencial de crecimiento, importadas y distribuidas en exclusividad para Chile.
         Haz clic en una marca para ver su ficha completa.
       </p>
 
-      <!-- Filtros por categoría (4.2 del documento).
-           El atributo data-categoria debe coincidir con data-categorias de las tarjetas. -->
-      <div class="brand-filters">
-        <button type="button" class="active" data-categoria="todas" data-i18n="bp.filter.all">Todas</button>
-        <button type="button" data-categoria="alcohol" data-i18n="bp.filter.alcohol">Bebidas con alcohol</button>
-        <button type="button" data-categoria="sin-alcohol" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</button>
-        <button type="button" data-categoria="alimentos" data-i18n="bp.filter.alimentos">Alimentos y mascotas</button>
+      <!-- Controles: filtros por categoría (izquierda) + cambio de vista (derecha) -->
+      <div class="ga-controls">
+        <div class="brand-filters" role="group" data-i18n-aria-label="bg.filters.label" aria-label="Filtrar por categoría">
+          <button type="button" class="active" aria-pressed="true" data-categoria="todas" data-i18n="bp.filter.all">Todas</button>
+          <button type="button" aria-pressed="false" data-categoria="alcohol" data-i18n="bp.filter.alcohol">Bebidas con alcohol</button>
+          <button type="button" aria-pressed="false" data-categoria="sin-alcohol" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</button>
+          <button type="button" aria-pressed="false" data-categoria="alimentos" data-i18n="bp.filter.alimentos">Alimentos y mascotas</button>
+        </div>
+
+        <div class="ga-view" role="group" data-i18n-aria-label="bg.view.label" aria-label="Cambiar vista de la galería">
+          <button type="button" id="viewAccordionBtn" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg><span data-i18n="bg.view.accordion">Acordeón</span></button>
+          <button type="button" id="viewGridBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span data-i18n="bg.view.grid">Mosaico</span></button>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section" style="padding-top: 1.5rem;">
     <div class="container">
-      <div class="brands-grid" style="margin-top: 0;">
 
-        <!-- data-categorias: lista de categorías separadas por espacio -->
-        <a href="drinkball.html" class="brand-card" data-categorias="alcohol">
-          <div class="brand-logo">
-            <img src="img/drinkball.png" alt="Logo DrinkBall"
-              onerror="this.outerHTML='<span>[LOGO DRINKBALL]</span>'">
+      <!-- VISTA 1: ACORDEÓN (por defecto). En escritorio se expande al pasar el mouse; en móvil, al tocar. -->
+      <div id="viewAccordion" class="ga-accordion">
+        <article class="ga-item is-active" data-categorias="alcohol" data-brand="drinkball" tabindex="0">
+          <img class="ga-bg" src="img/drinkball.png" alt="" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top">
+            <span class="ga-pill" data-i18n="bp.filter.alcohol">Bebidas con alcohol</span>
+            <button type="button" class="ga-arrow" data-open="drinkball"><span class="sr-only"><span data-i18n="bg.open.sr">Ver ficha de</span> DrinkBall</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
           </div>
-          <h4 data-i18n="brands.drinkball.name">DrinkBall</h4>
-          <p data-i18n="bp.card.drinkball">Cócteles listos para beber · Comary, Brasil · "Innovación y actitud"</p>
-        </a>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.drinkball.name">DrinkBall</h3>
+            <p class="ga-desc" data-i18n="bp.card.drinkball">Cócteles listos para beber · Comary, Brasil · "Innovación y actitud"</p>
+            <button type="button" class="ga-link" data-open="drinkball"><span data-i18n="bg.open">Ver ficha completa</span> &rarr;</button>
+          </div>
+        </article>
+        <article class="ga-item" data-categorias="alcohol" data-brand="pinkmoon" tabindex="0">
+          <img class="ga-bg" src="img/logo-pink-moon.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top">
+            <span class="ga-pill" data-i18n="bp.filter.alcohol">Bebidas con alcohol</span>
+            <button type="button" class="ga-arrow" data-open="pinkmoon"><span class="sr-only"><span data-i18n="bg.open.sr">Ver ficha de</span> Pink Moon</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          </div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.pinkmoon.name">Pink Moon</h3>
+            <p class="ga-desc" data-i18n="bp.card.pinkmoon">Frisante · Comary, Brasil · "Experiencia y estilo"</p>
+            <button type="button" class="ga-link" data-open="pinkmoon"><span data-i18n="bg.open">Ver ficha completa</span> &rarr;</button>
+          </div>
+        </article>
+        <article class="ga-item" data-categorias="sin-alcohol" data-brand="phantom" tabindex="0">
+          <img class="ga-bg" src="img/Phantom (2).jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top">
+            <span class="ga-pill" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</span>
+            <button type="button" class="ga-arrow" data-open="phantom"><span class="sr-only"><span data-i18n="bg.open.sr">Ver ficha de</span> Phantom</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          </div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.phantom.name">Phantom</h3>
+            <p class="ga-desc" data-i18n="bp.card.phantom">Bebida energética</p>
+            <button type="button" class="ga-link" data-open="phantom"><span data-i18n="bg.open">Ver ficha completa</span> &rarr;</button>
+          </div>
+        </article>
+        <article class="ga-item" data-categorias="sin-alcohol" data-brand="cacaolat" tabindex="0">
+          <img class="ga-bg" src="img/cacao-lat.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top">
+            <span class="ga-pill" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</span>
+            <button type="button" class="ga-arrow" data-open="cacaolat"><span class="sr-only"><span data-i18n="bg.open.sr">Ver ficha de</span> CacaoLat</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          </div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.cacaolat.name">CacaoLat</h3>
+            <p class="ga-desc" data-i18n="bp.card.cacaolat">Batidos lácteos de cacao</p>
+            <button type="button" class="ga-link" data-open="cacaolat"><span data-i18n="bg.open">Ver ficha completa</span> &rarr;</button>
+          </div>
+        </article>
+        <article class="ga-item" data-categorias="alimentos" data-brand="myfoods" tabindex="0">
+          <img class="ga-bg" src="img/logo-b-myfoods.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top">
+            <span class="ga-pill" data-i18n="bp.filter.alimentos">Alimentos y mascotas</span>
+            <button type="button" class="ga-arrow" data-open="myfoods"><span class="sr-only"><span data-i18n="bg.open.sr">Ver ficha de</span> My Foods</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          </div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.myfoods.name">My Foods</h3>
+            <p class="ga-desc" data-i18n="bp.card.myfoods">Alimentos sin gluten</p>
+            <button type="button" class="ga-link" data-open="myfoods"><span data-i18n="bg.open">Ver ficha completa</span> &rarr;</button>
+          </div>
+        </article>
+        <article class="ga-item" data-categorias="alimentos" data-brand="topk9" tabindex="0">
+          <img class="ga-bg" src="img/top-k9.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top">
+            <span class="ga-pill" data-i18n="bp.filter.alimentos">Alimentos y mascotas</span>
+            <button type="button" class="ga-arrow" data-open="topk9"><span class="sr-only"><span data-i18n="bg.open.sr">Ver ficha de</span> Top-K9</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          </div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.topk9.name">Top-K9</h3>
+            <p class="ga-desc" data-i18n="bp.card.topk9">Productos para mascotas: arenas, snacks y accesorios</p>
+            <button type="button" class="ga-link" data-open="topk9"><span data-i18n="bg.open">Ver ficha completa</span> &rarr;</button>
+          </div>
+        </article>
+      </div>
 
-        <a href="pink-moon.html" class="brand-card" data-categorias="alcohol">
-          <div class="brand-logo">
-            <img src="img/logo-pink-moon.jpg" alt="Logo Pink Moon"
-              onerror="this.outerHTML='<span>[LOGO PINK MOON]</span>'">
+      <!-- VISTA 2: MOSAICO -->
+      <div id="viewGrid" class="gb-grid" hidden>
+        <article class="gb-card gb-featured" data-categorias="alcohol">
+          <img class="ga-bg" src="img/drinkball.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top"><span class="ga-pill" data-i18n="bp.filter.alcohol">Bebidas con alcohol</span></div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.drinkball.name">DrinkBall</h3>
+            <p class="ga-desc" data-i18n="bp.card.drinkball">Cócteles listos para beber · Comary, Brasil · "Innovación y actitud"</p>
+            <button type="button" class="ga-link gb-link" data-open="drinkball"><span data-i18n="bg.details">Ver detalles</span> &rarr;</button>
           </div>
-          <h4 data-i18n="brands.pinkmoon.name">Pink Moon</h4>
-          <p data-i18n="bp.card.pinkmoon">Frisante · Comary, Brasil · "Experiencia y estilo"</p>
-        </a>
-
-        <div class="brand-card" data-categorias="sin-alcohol">
-          <div class="brand-logo">
-            <img src="img/Phantom (2).jpg" alt="Logo Phantom" onerror="this.outerHTML='<span>[LOGO PHANTOM]</span>'">
+        </article>
+        <article class="gb-card" data-categorias="alcohol">
+          <img class="ga-bg" src="img/logo-pink-moon.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top"><span class="ga-pill" data-i18n="bp.filter.alcohol">Bebidas con alcohol</span></div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.pinkmoon.name">Pink Moon</h3>
+            <p class="ga-desc" data-i18n="bp.card.pinkmoon">Frisante · Comary, Brasil · "Experiencia y estilo"</p>
+            <button type="button" class="ga-link gb-link" data-open="pinkmoon"><span data-i18n="bg.details">Ver detalles</span> &rarr;</button>
           </div>
-          <h4 data-i18n="brands.phantom.name">Phantom</h4>
-          <p data-i18n="bp.card.phantom">Bebida energética</p>
-        </div>
-
-        <div class="brand-card" data-categorias="sin-alcohol">
-          <div class="brand-logo">
-            <img src="img/cacao-lat.jpg" alt="Logo Cacaolat" onerror="this.outerHTML='<span>[LOGO CACAOLAT]</span>'">
+        </article>
+        <article class="gb-card" data-categorias="sin-alcohol">
+          <img class="ga-bg" src="img/Phantom (2).jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top"><span class="ga-pill" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</span></div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.phantom.name">Phantom</h3>
+            <p class="ga-desc" data-i18n="bp.card.phantom">Bebida energética</p>
+            <button type="button" class="ga-link gb-link" data-open="phantom"><span data-i18n="bg.details">Ver detalles</span> &rarr;</button>
           </div>
-          <h4 data-i18n="brands.cacaolat.name">CacaoLat</h4>
-          <p data-i18n="bp.card.cacaolat">Batidos lácteos de cacao</p>
-        </div>
-
-        <div class="brand-card" data-categorias="alimentos">
-          <div class="brand-logo">
-            <img src="img/logo-b-myfoods.jpg" alt="Logo My Foods" onerror="this.outerHTML='<span>[LOGO MY FOODS]</span>'">
+        </article>
+        <article class="gb-card" data-categorias="sin-alcohol">
+          <img class="ga-bg" src="img/cacao-lat.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top"><span class="ga-pill" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</span></div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.cacaolat.name">CacaoLat</h3>
+            <p class="ga-desc" data-i18n="bp.card.cacaolat">Batidos lácteos de cacao</p>
+            <button type="button" class="ga-link gb-link" data-open="cacaolat"><span data-i18n="bg.details">Ver detalles</span> &rarr;</button>
           </div>
-          <h4 data-i18n="brands.myfoods.name">My Foods</h4>
-          <p data-i18n="bp.card.myfoods">Alimentos sin gluten</p>
-        </div>
-
-        <div class="brand-card" data-categorias="alimentos">
-          <div class="brand-logo">
-            <img src="img/top-k9.png" alt="Logo Top-K9" onerror="this.outerHTML='<span>[LOGO TOP-K9]</span>'">
+        </article>
+        <article class="gb-card" data-categorias="alimentos">
+          <img class="ga-bg" src="img/logo-b-myfoods.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top"><span class="ga-pill" data-i18n="bp.filter.alimentos">Alimentos y mascotas</span></div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.myfoods.name">My Foods</h3>
+            <p class="ga-desc" data-i18n="bp.card.myfoods">Alimentos sin gluten</p>
+            <button type="button" class="ga-link gb-link" data-open="myfoods"><span data-i18n="bg.details">Ver detalles</span> &rarr;</button>
           </div>
-          <h4 data-i18n="brands.topk9.name">Top-K9</h4>
-          <p data-i18n="bp.card.topk9">Productos para mascotas: arenas, snacks y accesorios</p>
-        </div>
+        </article>
+        <article class="gb-card gb-featured" data-categorias="alimentos">
+          <img class="ga-bg" src="img/top-k9.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-top"><span class="ga-pill" data-i18n="bp.filter.alimentos">Alimentos y mascotas</span></div>
+          <div class="ga-bottom">
+            <h3 data-i18n="brands.topk9.name">Top-K9</h3>
+            <p class="ga-desc" data-i18n="bp.card.topk9">Productos para mascotas: arenas, snacks y accesorios</p>
+            <button type="button" class="ga-link gb-link" data-open="topk9"><span data-i18n="bg.details">Ver detalles</span> &rarr;</button>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+
+  <!-- FICHA EMERGENTE (un solo <dialog>; el JS muestra el bloque de la marca elegida) -->
+  <dialog id="brandDialog" class="ga-dialog">
+    <button type="button" class="ga-close" id="brandClose"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg><span class="sr-only" data-i18n="bg.close">Cerrar</span></button>
+    <div class="ga-dialog-inner">
+      <div class="ga-detail" data-brand="drinkball" hidden>
+        <div class="ga-detail-head">
+          <img class="ga-bg" src="img/drinkball.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-detail-text">
+            <span class="ga-pill" data-i18n="bp.filter.alcohol">Bebidas con alcohol</span>
+            <h2 id="ga-title-drinkball" data-i18n="brands.drinkball.name">DrinkBall</h2>
+            <p data-i18n="bp.card.drinkball">Cócteles listos para beber · Comary, Brasil · "Innovación y actitud"</p>
+          </div>
+        </div>
+        <div class="ga-detail-body">
+          <div><h3 class="ga-h" data-i18n="bg.modal.about">Sobre la marca</h3><p data-i18n="bg.about.drinkball">Cócteles listos para disfrutar, directo desde Brasil. De Comary, fabricante con más de 70 años de historia (1952).</p></div>
+          <dl class="ga-facts"><div><dt data-i18n="bg.modal.origin">Origen</dt><dd data-i18n="bg.country.br">Brasil</dd></div><div><dt data-i18n="bg.modal.maker">Fabricante</dt><dd>Comary</dd></div><div><dt data-i18n="bg.modal.dist">Distribución</dt><dd data-i18n="bg.modal.dist.val">Exclusiva en Chile</dd></div></dl>
+          <div><h3 class="ga-h" data-i18n="bg.modal.flavors">Sabores</h3><ul class="ga-chips"><li>Caipiríssima</li><li>Banana Split</li><li>Doce de Leite</li></ul></div>
+          <a class="ga-pagelink" href="drinkball.html" data-i18n="bg.modal.page">Ver página de la marca</a>
+        </div>
+      </div>
+      <div class="ga-detail" data-brand="pinkmoon" hidden>
+        <div class="ga-detail-head">
+          <img class="ga-bg" src="img/logo-pink-moon.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-detail-text">
+            <span class="ga-pill" data-i18n="bp.filter.alcohol">Bebidas con alcohol</span>
+            <h2 id="ga-title-pinkmoon" data-i18n="brands.pinkmoon.name">Pink Moon</h2>
+            <p data-i18n="bp.card.pinkmoon">Frisante · Comary, Brasil · "Experiencia y estilo"</p>
+          </div>
+        </div>
+        <div class="ga-detail-body">
+          <div><h3 class="ga-h" data-i18n="bg.modal.about">Sobre la marca</h3><p data-i18n="bg.about.pinkmoon">Frisante de Comary, Brasil. Lema de la marca: “Experiencia y estilo”.</p></div>
+          <dl class="ga-facts"><div><dt data-i18n="bg.modal.origin">Origen</dt><dd data-i18n="bg.country.br">Brasil</dd></div><div><dt data-i18n="bg.modal.maker">Fabricante</dt><dd>Comary</dd></div><div><dt data-i18n="bg.modal.dist">Distribución</dt><dd data-i18n="bg.modal.dist.val">Exclusiva en Chile</dd></div></dl>
+          <a class="ga-pagelink" href="pink-moon.html" data-i18n="bg.modal.page">Ver página de la marca</a>
+        </div>
+      </div>
+      <div class="ga-detail" data-brand="phantom" hidden>
+        <div class="ga-detail-head">
+          <img class="ga-bg" src="img/Phantom (2).jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-detail-text">
+            <span class="ga-pill" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</span>
+            <h2 id="ga-title-phantom" data-i18n="brands.phantom.name">Phantom</h2>
+            <p data-i18n="bp.card.phantom">Bebida energética</p>
+          </div>
+        </div>
+        <div class="ga-detail-body">
+          <div><h3 class="ga-h" data-i18n="bg.modal.about">Sobre la marca</h3><p data-i18n="bg.about.phantom">Bebida energética para deportistas y consumidores en general.</p></div>
+          <dl class="ga-facts"><div><dt data-i18n="bg.modal.dist">Distribución</dt><dd data-i18n="bg.modal.dist.val">Exclusiva en Chile</dd></div></dl>
+        </div>
+      </div>
+      <div class="ga-detail" data-brand="cacaolat" hidden>
+        <div class="ga-detail-head">
+          <img class="ga-bg" src="img/cacao-lat.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-detail-text">
+            <span class="ga-pill" data-i18n="bp.filter.noalcohol">Bebidas sin alcohol</span>
+            <h2 id="ga-title-cacaolat" data-i18n="brands.cacaolat.name">CacaoLat</h2>
+            <p data-i18n="bp.card.cacaolat">Batidos lácteos de cacao</p>
+          </div>
+        </div>
+        <div class="ga-detail-body">
+          <div><h3 class="ga-h" data-i18n="bg.modal.about">Sobre la marca</h3><p data-i18n="bg.about.cacaolat">Creada en 1933 en Barcelona, es considerada uno de los primeros batidos de cacao industrializados del mundo.</p></div>
+          <dl class="ga-facts"><div><dt data-i18n="bg.modal.origin">Origen</dt><dd data-i18n="bg.country.es">España</dd></div><div><dt data-i18n="bg.modal.dist">Distribución</dt><dd data-i18n="bg.modal.dist.val">Exclusiva en Chile</dd></div></dl>
+        </div>
+      </div>
+      <div class="ga-detail" data-brand="myfoods" hidden>
+        <div class="ga-detail-head">
+          <img class="ga-bg" src="img/logo-b-myfoods.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-detail-text">
+            <span class="ga-pill" data-i18n="bp.filter.alimentos">Alimentos y mascotas</span>
+            <h2 id="ga-title-myfoods" data-i18n="brands.myfoods.name">My Foods</h2>
+            <p data-i18n="bp.card.myfoods">Alimentos sin gluten</p>
+          </div>
+        </div>
+        <div class="ga-detail-body">
+          <div><h3 class="ga-h" data-i18n="bg.modal.about">Sobre la marca</h3><p data-i18n="bg.about.myfoods">Línea de alimentos con foco en alimentación sin gluten.</p></div>
+          <dl class="ga-facts"><div><dt data-i18n="bg.modal.dist">Distribución</dt><dd data-i18n="bg.modal.dist.val">Exclusiva en Chile</dd></div></dl>
+        </div>
+      </div>
+      <div class="ga-detail" data-brand="topk9" hidden>
+        <div class="ga-detail-head">
+          <img class="ga-bg" src="img/top-k9.png" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <div class="ga-shade"></div>
+          <div class="ga-detail-text">
+            <span class="ga-pill" data-i18n="bp.filter.alimentos">Alimentos y mascotas</span>
+            <h2 id="ga-title-topk9" data-i18n="brands.topk9.name">Top-K9</h2>
+            <p data-i18n="bp.card.topk9">Productos para mascotas: arenas, snacks y accesorios</p>
+          </div>
+        </div>
+        <div class="ga-detail-body">
+          <div><h3 class="ga-h" data-i18n="bg.modal.about">Sobre la marca</h3><p data-i18n="bg.about.topk9">Productos para mascotas, con foco en alimentos y accesorios para perros y gatos.</p></div>
+          <dl class="ga-facts"><div><dt data-i18n="bg.modal.dist">Distribución</dt><dd data-i18n="bg.modal.dist.val">Exclusiva en Chile</dd></div></dl>
+        </div>
+      </div>
+      <div class="ga-dialog-foot">
+        <span data-i18n="bg.modal.cta">¿Interesado en comercializar esta marca?</span>
+        <a class="btn btn-dark" href="contacto.html" data-i18n="bg.modal.btn">Consultar por esta marca</a>
+      </div>
+    </div>
+  </dialog>
 
   <!-- ========== REPRESENTA TU MARCA CON NOSOTROS ========== -->
   <section class="cta-banner green">
@@ -186,5 +391,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/marcas-galeria.js"></script>
 </body>
 </html>
